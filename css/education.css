@@ -1,0 +1,551 @@
+/* ===== EDUCATION: kaca gelap, glow biru, animasi halus =====
+   Memakai variabel tema dari variables.css, jadi mode gelap
+   dan terang otomatis ikut. Animasi masuk diatur js/education.js */
+
+@property --edu-a {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.edu {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding-bottom: 7.5rem;
+}
+
+.edu-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+/* ----- Latar: cahaya, partikel, gelombang ----- */
+
+.edu-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.edu-glow {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.edu-glow.g1 {
+  left: -12rem;
+  top: 22%;
+  width: 34rem;
+  height: 34rem;
+  background: radial-gradient(circle, rgba(47, 123, 255, .22), transparent 65%);
+  animation: eduDrift 18s ease-in-out infinite alternate;
+}
+
+.edu-glow.g2 {
+  right: -10rem;
+  top: -6rem;
+  width: 32rem;
+  height: 32rem;
+  background: radial-gradient(circle, rgba(30, 200, 255, .14), transparent 65%);
+  animation: eduDrift 22s ease-in-out -7s infinite alternate;
+}
+
+@keyframes eduDrift {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(36px, 28px) scale(1.12); }
+}
+
+.edu-dot {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--s);
+  height: var(--s);
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 8px var(--cyan);
+  opacity: .15;
+  animation: eduDot var(--t) ease-in-out var(--d) infinite;
+}
+
+@keyframes eduDot {
+  0%, 100% { opacity: .15; transform: translateY(0); }
+  50%      { opacity: .85; transform: translateY(-18px); }
+}
+
+.edu-waves {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 200%;
+  height: clamp(110px, 16vw, 200px);
+  opacity: .7;
+  animation: eduWave 36s linear infinite;
+}
+
+@keyframes eduWave {
+  to { transform: translateX(-50%); }
+}
+
+/* ----- Topi toga melayang ----- */
+
+.edu-cap {
+  position: absolute;
+  top: -.5rem;
+  right: 0;
+  width: clamp(4.8rem, 11vw, 8.5rem);
+  height: auto;
+  filter: drop-shadow(0 0 18px rgba(47, 123, 255, .5));
+  animation: eduFloat 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes eduFloat {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50%      { transform: translateY(-14px) rotate(3deg); }
+}
+
+/* ----- Judul ----- */
+
+.edu-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  margin-bottom: 1rem;
+  padding: .45rem 1.1rem .45rem .9rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--panel-solid) 70%, transparent);
+  color: var(--text);
+  font-size: .95rem;
+  font-weight: 500;
+}
+
+.edu-pill svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: none;
+  stroke: var(--cyan);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.edu-title {
+  margin: 0 0 2.4rem;
+  font-size: clamp(2.8rem, 7vw, 4.8rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -.02em;
+  background: linear-gradient(90deg, var(--text) 0%, var(--text) 40%, var(--cyan) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.edu-title::after {
+  width: 6rem;
+  animation: eduGlow 3.2s ease-in-out infinite;
+}
+
+@keyframes eduGlow {
+  0%, 100% { box-shadow: 0 0 10px rgba(30, 200, 255, .35); }
+  50%      { box-shadow: 0 0 26px rgba(30, 200, 255, .8); }
+}
+
+@keyframes eduLineIn {
+  from { transform: scaleX(0); opacity: 0; }
+  to   { transform: scaleX(1); opacity: 1; }
+}
+
+/* ----- Susunan dua panel ----- */
+
+.edu-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  gap: 1.8rem;
+  align-items: stretch;
+}
+
+.edu-panel {
+  position: relative;
+  padding: 2rem;
+  border: 1.5px solid color-mix(in srgb, var(--blue) 45%, transparent);
+  border-radius: 22px;
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--panel-solid) 72%, transparent),
+    color-mix(in srgb, var(--panel-solid) 42%, transparent)
+  );
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, .02),
+    0 10px 40px rgba(2, 8, 30, .35),
+    0 0 30px color-mix(in srgb, var(--blue) 16%, transparent);
+  transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+}
+
+.edu-panel > * { position: relative; z-index: 1; }
+
+.edu-panel:hover {
+  transform: translateY(-6px);
+  border-color: var(--cyan);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, .04),
+    0 16px 46px rgba(2, 8, 30, .45),
+    0 0 46px color-mix(in srgb, var(--cyan) 30%, transparent);
+}
+
+/* cahaya biru yang berjalan pelan di sekeliling kartu kiri */
+.edu-left::before {
+  content: "";
+  position: absolute;
+  inset: -1.5px;
+  z-index: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(from var(--edu-a), transparent 0%, transparent 70%, var(--cyan) 90%, transparent 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: .85;
+  pointer-events: none;
+  animation: eduSpin 10s linear infinite;
+}
+
+@keyframes eduSpin {
+  to { --edu-a: 360deg; }
+}
+
+/* cahaya lembut di pojok kanan bawah kartu kiri */
+.edu-left::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: radial-gradient(60% 50% at 100% 100%, color-mix(in srgb, var(--blue) 26%, transparent), transparent 70%);
+  pointer-events: none;
+}
+
+/* ----- Isi kartu kiri ----- */
+
+.edu-logo {
+  display: block;
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  padding: 6px;
+  margin-bottom: 1.5rem;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 0 22px color-mix(in srgb, var(--cyan) 28%, transparent);
+}
+
+.edu-degree {
+  margin: 0 0 .5rem;
+  font-family: var(--font-head);
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.edu-school {
+  display: flex;
+  align-items: flex-start;
+  gap: .6rem;
+  margin: 0 0 1rem;
+  color: var(--muted);
+}
+
+.edu-school svg,
+.edu-year svg {
+  flex: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: .15rem;
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.edu-gpa {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .35rem 1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: .92rem;
+  font-weight: 600;
+  color: var(--text);
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--blue) 34%, transparent),
+    color-mix(in srgb, var(--cyan) 22%, transparent)
+  );
+}
+
+.edu-gpa svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: var(--accent);
+  stroke: none;
+}
+
+.edu-year {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin: 1.8rem 0 0;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.edu-year svg { margin-top: 0; }
+
+/* ----- Isi kartu kanan ----- */
+
+.edu-heading {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  margin: 0 0 1.2rem;
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.edu-heading::before {
+  content: "";
+  flex: none;
+  width: 4px;
+  height: 1.15em;
+  border-radius: 3px;
+  background: var(--grad);
+  box-shadow: var(--glow);
+}
+
+.edu-sub {
+  margin: 1.6rem 0 0;
+  padding-top: 1.3rem;
+  border-top: 1px solid var(--line);
+}
+
+.edu-list {
+  position: relative;
+  display: grid;
+  gap: 1.15rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* garis tipis yang menghubungkan ikon */
+.edu-list::before {
+  content: "";
+  position: absolute;
+  left: 1.15rem;
+  top: 1.2rem;
+  bottom: 1.2rem;
+  width: 1px;
+  background: linear-gradient(var(--line-strong), transparent);
+}
+
+.edu-list li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.3rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.edu-ico {
+  display: grid;
+  place-items: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--blue) 16%, var(--panel-solid));
+  color: var(--cyan);
+  transition: box-shadow .3s ease, transform .3s ease;
+}
+
+.edu-ico svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.edu-list li:hover .edu-ico {
+  transform: scale(1.08);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--cyan) 45%, transparent);
+}
+
+.edu-list strong { color: var(--cyan); font-weight: 600; }
+
+.edu-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.edu-tags li {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .4rem .95rem;
+  font-size: .88rem;
+  color: var(--text);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--blue) 10%, transparent);
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease, background .25s ease;
+}
+
+.edu-tags li svg {
+  flex: none;
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: none;
+  stroke: var(--cyan);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.edu-tags li:hover {
+  transform: translateY(-2px) scale(1.06);
+  border-color: var(--cyan);
+  background: color-mix(in srgb, var(--blue) 22%, transparent);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--cyan) 40%, transparent);
+}
+
+/* dipakai juga oleh section Courses */
+.cred-list { margin-top: 1.5rem; }
+
+/* ----- Animasi masuk (diatur js/education.js) ----- */
+
+.edu.js-ready [data-reveal],
+.edu.js-ready .edu-item {
+  opacity: 0;
+}
+
+.edu [data-reveal].in {
+  opacity: 1;
+  animation: eduUp .85s cubic-bezier(.2, .7, .2, 1) backwards;
+  animation-delay: calc(var(--d, 0) * 140ms);
+}
+
+.edu [data-reveal].in .edu-item {
+  opacity: 1;
+  animation: eduRise .6s cubic-bezier(.2, .8, .2, 1) backwards;
+  animation-delay: calc(var(--i, 0) * 80ms + 450ms);
+}
+
+.edu.js-ready .edu-head.in .edu-title::after {
+  transform-origin: left;
+  animation:
+    eduLineIn .9s cubic-bezier(.2, .7, .2, 1) .35s backwards,
+    eduGlow 3.2s ease-in-out 1.3s infinite;
+}
+
+@keyframes eduUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes eduRise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* animasi latar berhenti saat section tidak terlihat (hemat tenaga) */
+.edu.is-off .edu-glow,
+.edu.is-off .edu-dot,
+.edu.is-off .edu-waves,
+.edu.is-off .edu-cap,
+.edu.is-off .edu-left::before,
+.edu.is-off .edu-title::after {
+  animation-play-state: paused;
+}
+
+/* ----- Mode terang ----- */
+
+:root[data-theme="light"] .edu-glow { opacity: .55; }
+
+:root[data-theme="light"] .edu-dot {
+  background: var(--blue);
+  box-shadow: 0 0 6px color-mix(in srgb, var(--blue) 55%, transparent);
+}
+
+:root[data-theme="light"] .edu-waves { opacity: .45; }
+
+:root[data-theme="light"] .edu-cap {
+  filter: drop-shadow(0 8px 14px rgba(40, 70, 140, .28));
+}
+
+:root[data-theme="light"] .edu-panel {
+  box-shadow:
+    0 10px 30px rgba(40, 70, 140, .12),
+    0 0 22px color-mix(in srgb, var(--blue) 12%, transparent);
+}
+
+:root[data-theme="light"] .edu-panel:hover {
+  box-shadow:
+    0 16px 40px rgba(40, 70, 140, .18),
+    0 0 34px color-mix(in srgb, var(--cyan) 26%, transparent);
+}
+
+:root[data-theme="light"] .edu-ico {
+  background: color-mix(in srgb, var(--blue) 10%, #fff);
+}
+
+/* ----- Layar kecil ----- */
+
+@media (max-width: 900px) {
+  .edu-card { grid-template-columns: 1fr; gap: 1.4rem; }
+}
+
+@media (max-width: 560px) {
+  .edu { padding-bottom: 5.5rem; }
+  .edu-panel { padding: 1.4rem; border-radius: 18px; }
+  .edu-degree { font-size: 1.3rem; }
+  .edu-list li { gap: .8rem; }
+  .edu-tags li { font-size: .82rem; }
+}
+
+/* ----- Pengguna yang mengurangi animasi ----- */
+
+@media (prefers-reduced-motion: reduce) {
+  .edu *,
+  .edu *::before,
+  .edu *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .edu.js-ready [data-reveal],
+  .edu.js-ready .edu-item {
+    opacity: 1 !important;
+  }
+}

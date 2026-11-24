@@ -1,0 +1,118 @@
+/* ===== KARTU KEAHLIAN BERGAMBAR (tanpa bar persen) ===== */
+
+.sk-card .sc-icon { border-radius: 16px; }
+.sk-card .sc-icon::after { border-radius: 16px; }
+
+.sk-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: .6rem;
+  align-items: center;
+  margin-top: 1.3rem;
+}
+
+.sk-list {
+  display: grid;
+  gap: .95rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sk-item {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  font-size: .98rem;
+  line-height: 1.3;
+}
+
+.sk-item svg {
+  flex: none;
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: none;
+  stroke: var(--c2);
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 4px color-mix(in srgb, var(--c) 70%, transparent));
+  transition: transform .3s ease;
+}
+
+.sk-item:hover svg { transform: scale(1.2) rotate(-8deg); }
+
+.skills.js-ready .sk-item { opacity: 0; }
+
+.sk-card.in .sk-item {
+  opacity: 1;
+  animation: skPop .5s cubic-bezier(.2, .8, .2, 1) backwards;
+  animation-delay: calc(var(--i, 0) * 90ms + 300ms);
+}
+
+.sk-card-art { min-width: 0; }
+
+.sk-card-art .sk-art {
+  filter: drop-shadow(0 0 18px color-mix(in srgb, var(--c) 38%, transparent));
+  transition: transform .5s ease;
+}
+
+.sk-card:hover .sk-card-art .sk-art { transform: scale(1.05); }
+
+.sk-art .arm1 { transform-origin: 200px 170px; animation: skArm1 4.6s ease-in-out infinite; }
+.sk-art .arm2 { transform-origin: 200px 112px; animation: skArm2 3.2s ease-in-out infinite; }
+
+@keyframes skArm1 {
+  0%, 100% { transform: rotate(-6deg); }
+  50%      { transform: rotate(7deg); }
+}
+
+@keyframes skArm2 {
+  0%, 100% { transform: rotate(-9deg); }
+  50%      { transform: rotate(11deg); }
+}
+
+.sk-art .gear {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: skSpin 9s linear infinite;
+}
+
+.sk-art .gear.rev {
+  animation-duration: 6s;
+  animation-direction: reverse;
+}
+
+.sk-art .bar {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: skGrow 2.6s ease-in-out infinite;
+}
+
+@keyframes skGrow {
+  0%, 100% { transform: scaleY(.45); }
+  50%      { transform: scaleY(1); }
+}
+
+.sk-art .code-line {
+  stroke-dasharray: 60;
+  animation: skType 4s ease-in-out infinite;
+}
+
+@keyframes skType {
+  0%        { stroke-dashoffset: 60; }
+  40%, 85%  { stroke-dashoffset: 0; }
+  100%      { stroke-dashoffset: -60; }
+}
+
+.sk-art .blink { animation: skBlink 1s step-end infinite; }
+
+@keyframes skBlink {
+  0%   { opacity: 1; }
+  50%  { opacity: 0; }
+}
+
+@media (max-width: 480px) {
+  .sk-body { grid-template-columns: 1fr; }
+  .sk-card-art { max-width: 17rem; margin-inline: auto; }
+}

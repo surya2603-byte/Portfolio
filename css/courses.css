@@ -1,0 +1,316 @@
+/* ===== COURSES & CERTIFICATIONS =====
+   Semua selector diawali .crs- supaya tidak bentrok dengan section lain.
+   Warna memakai variabel dari variables.css (gelap + terang otomatis). */
+
+.crs { position: relative; overflow: hidden; }
+
+.crs-ico {
+  flex: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ----- Latar ----- */
+
+.crs-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+
+.crs-glow { position: absolute; border-radius: 50%; filter: blur(90px); }
+.crs-glow.g1 { top: -8rem; right: -6rem; width: 30rem; height: 30rem; background: var(--bg-glow-a); }
+.crs-glow.g2 { bottom: -10rem; left: -8rem; width: 28rem; height: 28rem; background: var(--bg-glow-b); }
+
+.crs-circuit {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 56px 56px;
+  opacity: .16;
+  -webkit-mask-image: radial-gradient(ellipse at 75% 0%, #000, transparent 65%);
+  mask-image: radial-gradient(ellipse at 75% 0%, #000, transparent 65%);
+}
+
+.crs-dot {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--s);
+  height: var(--s);
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+  opacity: .5;
+  animation: crs-float var(--t) ease-in-out var(--d) infinite;
+}
+
+@keyframes crs-float {
+  0%, 100% { transform: translateY(0); opacity: .25; }
+  50% { transform: translateY(-16px); opacity: .7; }
+}
+
+.crs-wrap { position: relative; z-index: 1; }
+
+/* ----- Header ----- */
+
+.crs-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2.8rem;
+}
+
+.crs-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  color: var(--cyan);
+  font: 600 .78rem var(--font-body);
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.crs-eyebrow::after {
+  content: "";
+  width: 8rem;
+  height: 1px;
+  background: linear-gradient(90deg, var(--line-strong), transparent);
+}
+
+.crs-title {
+  margin: .7rem 0 .9rem;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.crs-title span {
+  color: var(--cyan);
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.crs-sub { max-width: 38rem; margin: 0; color: var(--muted); font-size: 1.08rem; }
+
+.crs-art {
+  width: clamp(8rem, 20vw, 14rem);
+  height: auto;
+  filter: drop-shadow(0 0 22px rgba(30, 200, 255, .28));
+  animation: crs-bob 6s ease-in-out infinite;
+}
+
+@keyframes crs-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ----- Grid: 3 kolom desktop, 2 tablet, 1 mobile ----- */
+
+.crs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.crs-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1rem 1.15rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+
+.crs-card:hover,
+.crs-card:focus-within {
+  transform: translateY(-6px);
+  border-color: var(--cyan);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .25), var(--glow);
+}
+
+/* ----- Pratinjau ----- */
+
+.crs-thumb {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--panel-solid) 85%, #fff);
+}
+
+.crs-thumb > img,
+.crs-thumb > canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform .5s ease;
+}
+
+.crs-card:hover .crs-thumb > img,
+.crs-card:hover .crs-thumb > canvas { transform: scale(1.05); }
+
+.crs-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: .08em;
+}
+
+.crs-badge {
+  position: absolute;
+  top: .6rem;
+  right: .6rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  padding: .28rem .7rem .28rem .5rem;
+  border: 1px solid color-mix(in srgb, var(--ok) 55%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--ok) 22%, var(--panel-solid));
+  color: var(--ok);
+  font: 600 .8rem var(--font-body);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .25);
+}
+
+.crs-badge .crs-ico { width: .9rem; height: .9rem; stroke-width: 2.6; }
+
+/* ----- Teks kartu ----- */
+
+.crs-name {
+  display: flex;
+  align-items: flex-start;
+  gap: .55rem;
+  margin: 1rem 0 .5rem;
+  font-size: 1.08rem;
+  line-height: 1.35;
+}
+
+.crs-name .crs-ico { margin-top: .12rem; color: var(--cyan); }
+
+.crs-org,
+.crs-meta li {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  color: var(--muted);
+  font-size: .93rem;
+}
+
+.crs-org { margin: 0 0 .4rem; }
+.crs-org .crs-ico,
+.crs-meta .crs-ico { color: var(--cyan); }
+
+.crs-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem 1.1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ----- Tombol ----- */
+
+.crs-actions {
+  display: grid;
+  gap: .55rem;
+  margin-top: auto;
+  padding-top: 1.1rem;
+}
+
+.crs-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .7rem 1rem;
+  border: 1.5px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--cyan);
+  font: 600 .95rem var(--font-body);
+  text-decoration: none;
+  transition: background .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+.crs-btn .crs-ico { transition: transform .25s ease; }
+
+.crs-btn:hover,
+.crs-btn:focus-visible {
+  border-color: transparent;
+  background: var(--grad);
+  color: #031322;
+  box-shadow: var(--glow);
+}
+
+:root[data-theme="light"] .crs-btn:hover,
+:root[data-theme="light"] .crs-btn:focus-visible { color: #fff; }
+
+.crs-btn:hover .crs-ico { transform: translateX(4px); }
+
+.crs-verify {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .4rem;
+  color: var(--muted);
+  font-size: .85rem;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+
+.crs-verify:hover { color: var(--cyan); }
+.crs-verify .crs-ico { width: 1rem; height: 1rem; }
+
+/* ----- Animasi masuk layar (dipicu js/courses.js) ----- */
+
+.crs.js-ready [data-reveal]:not(.in) { opacity: 0; transform: translateY(22px); }
+
+.crs [data-reveal].in {
+  animation: crs-rise .7s cubic-bezier(.2, .7, .2, 1) backwards;
+  animation-delay: calc(var(--d, 0) * .09s);
+}
+
+@keyframes crs-rise {
+  from { opacity: 0; transform: translateY(22px); }
+}
+
+/* hemat tenaga: hentikan animasi latar saat section di luar layar */
+.crs.is-off .crs-dot,
+.crs.is-off .crs-art { animation-play-state: paused; }
+
+/* ----- Responsif ----- */
+
+@media (max-width: 1000px) {
+  .crs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .crs-grid { grid-template-columns: 1fr; }
+  .crs-head { grid-template-columns: 1fr; }
+  .crs-art { display: none; }
+  .crs-eyebrow::after { width: 4rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crs *, .crs *::before, .crs *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

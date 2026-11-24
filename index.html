@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Surya Wardana — Electrical Engineer</title>
+  <meta name="description" content="Portfolio of Surya Wardana, Electrical Engineering graduate focused on digital signal processing, EEG analysis, control systems and data analysis.">
+  <meta name="theme-color" content="#040a18">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Pasang tema tersimpan lebih awal supaya halaman tidak berkedip -->
+  <script>
+    try {
+      var saved = localStorage.getItem("theme");
+      if (saved === "light" || saved === "dark") {
+        document.documentElement.setAttribute("data-theme", saved);
+      }
+    } catch (e) {}
+  </script>
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/contact.css">
+  <link rel="stylesheet" href="css/education.css">
+  <link rel="stylesheet" href="css/skills.css">
+  <link rel="stylesheet" href="css/skills-cards.css">
+  <link rel="stylesheet" href="css/experience.css">
+  <link rel="stylesheet" href="css/courses.css">
+  <link rel="stylesheet" href="css/projects.css">
+</head>
+
+<body>
+
+<a class="skip-link" href="#about">Skip to content</a>
+
+<!-- ===== HEADER ===== -->
+
+<header class="site-header" id="home-top">
+  <div class="container header-inner">
+
+    <a class="brand" href="#home" aria-label="Surya Wardana, back to top">
+      <img src="assets/logo.svg" alt="">
+      <span>Surya <em>Wardana</em></span>
+    </a>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul class="nav-list">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+          <a class="nav-resume" href="assets/CV_Surya_Wardana.pdf" target="_blank" rel="noopener">
+            Resume
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 20h16"/></svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header-tools">
+      <button class="theme-switch" id="theme-toggle" type="button" role="switch" aria-checked="true" aria-label="Dark mode">
+        <svg class="ico ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <span class="track" aria-hidden="true"><span class="thumb"></span></span>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+
+      <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<main>
+
+  <!-- ===== HERO ===== -->
+
+  <section class="hero" id="home">
+    <canvas class="hero-waves" id="waves" aria-hidden="true"></canvas>
+    <div class="container hero-grid">
+
+      <div class="hero-copy">
+        <span class="hello" style="--i:0">Hello, I'm <span aria-hidden="true">👋</span></span>
+
+        <h1 style="--i:1">Surya <span class="grad">Wardana</span></h1>
+
+        <ul class="tagline" style="--i:2">
+          <li>Control Systems</li>
+          <li>Machine Learning</li>
+          <li>Artificial Intelligence</li>
+        </ul>
+
+        <div class="hero-actions" style="--i:3">
+          <a class="btn btn-primary" href="#projects">
+            Explore my work
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#contact">Get in Touch</a>
+        </div>
+
+        <ul class="hero-stats" style="--i:4">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4M7.5 13.5h2M11 13.5h2M14.5 13.5h2M7.5 17h2M11 17h2"/></svg>
+            <span><span class="stat-value">1+</span><span class="stat-label">Years of Experience</span></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h7"/></svg>
+            <span><span class="stat-value">5+</span><span class="stat-label">Projects delivered</span></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.6"/></svg>
+            <span><span class="stat-value">Banten</span><span class="stat-label">Indonesia</span></span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <!-- Ikon yang mengorbit. data-ring = jalur (0 atau 1), data-phase = posisi awal.
+             Hapus satu <img> untuk membuang ikon itu. -->
+        <img class="orbit-icon" src="assets/icons/aiml.png"       data-ring="0" data-phase="3.6" alt="">
+        <img class="orbit-icon" src="assets/icons/python.png"     data-ring="1" data-phase="4.5" alt="">
+
+        <img class="globe-img" src="assets/hero-globe.png" width="799" height="716" alt="">
+        <canvas id="fx"></canvas>
+
+        <img class="orbit-icon" src="assets/icons/react.png"      data-ring="0" data-phase="0.3" alt="">
+        <img class="orbit-icon" src="assets/icons/javascript.png" data-ring="0" data-phase="2.0" alt="">
+        <img class="orbit-icon" src="assets/icons/nodejs.png"     data-ring="1" data-phase="0.7" alt="">
+      </div>
+
+    </div>
+
+    <a class="scroll-hint" href="#about">
+      <svg viewBox="0 0 24 36" fill="none" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="4" y="2" width="16" height="30" rx="8"/><path class="wheel" d="M12 8v6"/></svg>
+      Scroll Down
+    </a>
+  </section>
+
+<!-- ===== ABOUT ===== -->
+
+  <section class="section about" id="about">
+    <div class="container about-grid">
+
+      <figure class="frame">
+        <div class="frame-inner">
+          <img src="assets/fotobaru.png" alt="Portrait of Surya Wardana">
+        </div>
+      </figure>
+
+      <div class="about-text">
+        <p class="about-eyebrow">Electrical Engineer</p>
+        <h2 class="about-title">Building intelligent systems through AI and engineering</h2>
+
+        <p>I'm Surya, an Electrical Engineering graduate with a strong interest in Control Systems, Artificial Intelligence, and Machine Learning. I focus on developing intelligent, data-driven solutions by combining engineering principles, computational methods, and analytical thinking. With hands-on experience in MATLAB and Python, I explore how control theory, AI, and ML can be applied to solve complex technical problems and improve system performance.</p>
+
+        <p>My academic background includes research in EEG signal processing, data analysis, and control systems, giving me a solid foundation in engineering research and problem solving. I enjoy continuously learning new technologies and applying them to practical challenges in fast-paced, technology-driven environments.</p>
+
+        <a class="about-cta" href="#contact">
+          Start a conversation
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+
+  <section class="section exp" id="experience">
+
+    <div class="exp-bg" aria-hidden="true">
+      <span class="exp-glow g1"></span>
+      <span class="exp-glow g2"></span>
+      <span class="exp-ring"></span>
+      <span class="exp-star"></span>
+      <span class="exp-cube c1"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+      <span class="exp-cube c2"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+      <span class="exp-cube c3"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+    </div>
+
+    <div class="container exp-wrap">
+
+      <header class="exp-head" data-reveal>
+        <span class="exp-eyebrow">Experience</span>
+        <h2 class="exp-title">My <span>Experience</span></h2>
+        <p class="exp-sub">A journey of learning, leadership, and professional growth.</p>
+
+        <div class="exp-tabs" role="tablist" aria-label="Experience category">
+          <span class="exp-tab-glow" aria-hidden="true"></span>
+          <button class="exp-tab" type="button" role="tab" data-cat="organizations" aria-selected="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14.2c3 .2 5 2.3 5 5.3"/></svg>
+            Organizations
+          </button>
+          <button class="exp-tab" type="button" role="tab" data-cat="work" aria-selected="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg>
+            Work Experience
+          </button>
+        </div>
+      </header>
+
+      <div class="exp-stage" id="exp-stage" data-reveal style="--d:1" role="region" aria-roledescription="carousel" aria-label="Experience cards. Swipe or use the arrow keys.">
+        <div class="exp-track" id="exp-track"></div>
+
+        <button class="exp-nav prev" type="button" aria-label="Previous experience">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
+        </button>
+        <button class="exp-nav next" type="button" aria-label="Next experience">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <div class="exp-timeline" id="exp-timeline" data-reveal style="--d:2" aria-label="Experience timeline"></div>
+
+    </div>
+  </section>
+
+  <!-- ===== EDUCATION ===== -->
+
+  <section class="section edu" id="education">
+
+    <!-- latar: cahaya, partikel, gelombang -->
+    <div class="edu-bg" aria-hidden="true">
+      <span class="edu-glow g1"></span>
+      <span class="edu-glow g2"></span>
+
+      <span class="edu-dot" style="--x:6%;--y:18%;--s:3px;--d:0s;--t:9s"></span>
+      <span class="edu-dot" style="--x:14%;--y:62%;--s:2px;--d:-2s;--t:11s"></span>
+      <span class="edu-dot" style="--x:22%;--y:34%;--s:4px;--d:-4s;--t:10s"></span>
+      <span class="edu-dot" style="--x:31%;--y:78%;--s:2px;--d:-1s;--t:12s"></span>
+      <span class="edu-dot" style="--x:40%;--y:12%;--s:3px;--d:-6s;--t:9s"></span>
+      <span class="edu-dot" style="--x:48%;--y:56%;--s:2px;--d:-3s;--t:13s"></span>
+      <span class="edu-dot" style="--x:55%;--y:86%;--s:3px;--d:-5s;--t:10s"></span>
+      <span class="edu-dot" style="--x:63%;--y:26%;--s:2px;--d:-7s;--t:11s"></span>
+      <span class="edu-dot" style="--x:70%;--y:70%;--s:4px;--d:-2s;--t:12s"></span>
+      <span class="edu-dot" style="--x:78%;--y:44%;--s:2px;--d:-8s;--t:9s"></span>
+      <span class="edu-dot" style="--x:85%;--y:14%;--s:3px;--d:-4s;--t:10s"></span>
+      <span class="edu-dot" style="--x:91%;--y:58%;--s:2px;--d:-1s;--t:13s"></span>
+      <span class="edu-dot" style="--x:96%;--y:82%;--s:3px;--d:-6s;--t:11s"></span>
+      <span class="edu-dot" style="--x:3%;--y:88%;--s:2px;--d:-3s;--t:12s"></span>
+
+      <svg class="edu-waves" viewBox="0 0 2880 220" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="edu-wave-g" gradientUnits="userSpaceOnUse" spreadMethod="repeat" x1="0" y1="0" x2="1440" y2="0">
+            <stop offset="0" stop-color="#2f7bff" stop-opacity=".15"/>
+            <stop offset=".5" stop-color="#1ec8ff"/>
+            <stop offset="1" stop-color="#2f7bff" stop-opacity=".15"/>
+          </linearGradient>
+        </defs>
+        <path d="M0 100C240 20 480 20 720 100S1200 180 1440 100C1680 20 1920 20 2160 100S2640 180 2880 100" fill="none" stroke="url(#edu-wave-g)" stroke-width="2" vector-effect="non-scaling-stroke"/>
+        <path d="M0 100C240 20 480 20 720 100S1200 180 1440 100C1680 20 1920 20 2160 100S2640 180 2880 100" transform="translate(0 24)" opacity=".55" fill="none" stroke="url(#edu-wave-g)" stroke-width="1.6" vector-effect="non-scaling-stroke"/>
+        <path d="M0 100C240 20 480 20 720 100S1200 180 1440 100C1680 20 1920 20 2160 100S2640 180 2880 100" transform="translate(0 48)" opacity=".3" fill="none" stroke="url(#edu-wave-g)" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+      </svg>
+    </div>
+
+    <div class="container edu-wrap">
+
+      <!-- topi toga melayang -->
+      <svg class="edu-cap" viewBox="0 0 160 130" aria-hidden="true">
+        <defs>
+          <linearGradient id="edu-cap-g" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#3f6fe0"/>
+            <stop offset="1" stop-color="#172f85"/>
+          </linearGradient>
+          <linearGradient id="edu-cap-t" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#7fb2ff"/>
+            <stop offset="1" stop-color="#2f5fd8"/>
+          </linearGradient>
+        </defs>
+        <path d="M38 66v26c0 12 20 22 44 22s44-10 44-22V66L82 84z" fill="url(#edu-cap-g)" stroke="#6aa0ff" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M6 52 82 20l76 32-76 32z" fill="url(#edu-cap-t)" stroke="#9cc8ff" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M82 52 136 62v36" fill="none" stroke="#7cc4ff" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M131 98h10l-2 18h-6z" fill="#4cc9ff"/>
+        <circle cx="82" cy="52" r="3.2" fill="#e6f1ff"/>
+      </svg>
+
+      <div class="edu-head" data-reveal>
+        <span class="edu-pill">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5M22 9v6"/></svg>
+          My Education
+        </span>
+        <h2 class="section-title edu-title">Education</h2>
+      </div>
+
+      <article class="edu-card">
+
+        <div class="edu-panel edu-left" data-reveal style="--d:1">
+          <img class="edu-logo edu-item" style="--i:0" src="assets/logousk.png" alt="Logo Syiah Kuala University" width="100" height="100">
+          <h3 class="edu-degree edu-item" style="--i:1">Bachelor of Electrical Engineering</h3>
+          <p class="edu-school edu-item" style="--i:2">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5M22 9v6"/></svg>
+            <span>Syiah Kuala University · Banda Aceh, Indonesia</span>
+          </p>
+          <span class="edu-gpa edu-item" style="--i:3">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.5 2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5-4.8-4.6 6.6-.9z"/></svg>
+            GPA: 3.38 / 4.00
+          </span>
+          <p class="edu-year edu-item" style="--i:4">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+            2021 – 2025
+          </p>
+        </div>
+
+        <div class="edu-panel edu-right" data-reveal style="--d:2">
+          <h4 class="edu-heading edu-item" style="--i:0">Key Academic Projects &amp; Activities</h4>
+          <ul class="edu-list">
+            <li class="edu-item" style="--i:1">
+              <span class="edu-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h4l2.5-7 4 14 3-9 1.5 2H22"/></svg></span>
+              <span class="edu-li-text"><strong>Final Thesis:</strong> Comparison of variational mode decomposition (VMD) and dynamic mode decomposition (DMD) performance for EEG signal processing of ASD patients</span>
+            </li>
+            <li class="edu-item" style="--i:2">
+              <span class="edu-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v6L5 19a1.5 1.5 0 0 0 1.4 2h11.2A1.5 1.5 0 0 0 19 19l-5-10V3"/></svg></span>
+              <span class="edu-li-text"><strong>Laboratory Assistant:</strong> Control Systems and Robotics Laboratory Assistant and Digital Signal Processing Laboratory Assistant</span>
+            </li>
+            <li class="edu-item" style="--i:3">
+              <span class="edu-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14.2c3 .2 5 2.3 5 5.3"/></svg></span>
+              <span class="edu-li-text"><strong>Active Member:</strong> Electrical Engineering Student Association, Student Executive Board of the Faculty of Engineering USK</span>
+            </li>
+          </ul>
+
+          <h4 class="edu-heading edu-sub edu-item" style="--i:4">Relevant Coursework</h4>
+          <ul class="edu-tags">
+            <li class="edu-item" style="--i:5">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg>
+              Control Systems
+            </li>
+            <li class="edu-item" style="--i:6">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>
+              Electrical Instrumentation
+            </li>
+            <li class="edu-item" style="--i:7">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/></svg>
+              Artificial Intelligence
+            </li>
+            <li class="edu-item" style="--i:8">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h4l2.5-7 4 14 3-9 1.5 2H22"/></svg>
+              Digital Signal Processing
+            </li>
+            <li class="edu-item" style="--i:9">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="11" r="2"/><path d="M12 13v8M8 7a5.5 5.5 0 0 0 0 8M16 7a5.5 5.5 0 0 1 0 8"/></svg>
+              Telecommunications Systems
+            </li>
+            <li class="edu-item" style="--i:10">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 2.8A3 3 0 0 0 5.2 13 3 3 0 0 0 7 17a3 3 0 0 0 5 1V5a2.5 2.5 0 0 0-3-1zM15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 2.8 3 3 0 0 1-1.2 3.2A3 3 0 0 1 17 17a3 3 0 0 1-5 1"/></svg>
+              Machine Learning
+            </li>
+          </ul>
+        </div>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+
+  <section class="section" id="projects" aria-label="Projects">
+    <div data-prj-host></div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+
+  <section class="section skills" id="skills">
+    <div class="container">
+
+      <!-- Bagian atas: judul + ilustrasi -->
+      <div class="sk-hero">
+
+        <div class="sk-copy" data-reveal>
+          <span class="sk-pill">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>
+            My Skills
+          </span>
+          <h2 class="sk-title">Skills</h2>
+          <p class="sk-lead">“Combining engineering expertise with modern technology across control systems, artificial intelligence, and data science.”</p>
+          <div class="sk-rule"></div>
+        </div>
+
+        <div class="sk-art-wrap" data-reveal style="--d:1">
+          <svg class="sk-art" viewBox="0 0 640 400" role="img" aria-label="A laptop showing code, surrounded by a control block diagram, a chart and a neural network">
+            <defs>
+              <linearGradient id="sk-glass" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#3b7bff" stop-opacity=".48"/>
+                <stop offset="1" stop-color="#6a4bff" stop-opacity=".16"/>
+              </linearGradient>
+              <linearGradient id="sk-orbit" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#8b5cf6"/>
+                <stop offset=".5" stop-color="#2f9bff"/>
+                <stop offset="1" stop-color="#8b5cf6" stop-opacity=".25"/>
+              </linearGradient>
+              <linearGradient id="sk-screen" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#0b1c52"/>
+                <stop offset="1" stop-color="#050f30"/>
+              </linearGradient>
+              <linearGradient id="sk-base" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#2a3f9c"/>
+                <stop offset="1" stop-color="#1a2a6e"/>
+              </linearGradient>
+              <radialGradient id="sk-floor" cx=".5" cy=".5" r=".5">
+                <stop offset="0" stop-color="#3b82ff" stop-opacity=".6"/>
+                <stop offset="1" stop-color="#3b82ff" stop-opacity="0"/>
+              </radialGradient>
+              <filter id="sk-glow" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="3" result="b"/>
+                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+
+            <!-- bintang kecil berkedip -->
+            <g fill="#9fd0ff">
+              <circle class="twinkle" cx="140" cy="58" r="1.6"/>
+              <circle class="twinkle" cx="430" cy="150" r="1.4" style="animation-delay:-1s"/>
+              <circle class="twinkle" cx="590" cy="36" r="1.8" style="animation-delay:-2s"/>
+              <circle class="twinkle" cx="34" cy="300" r="1.6" style="animation-delay:-.5s"/>
+              <circle class="twinkle" cx="606" cy="296" r="1.4" style="animation-delay:-1.5s"/>
+              <circle class="twinkle" cx="300" cy="24" r="1.4" style="animation-delay:-2.5s"/>
+            </g>
+
+            <!-- lantai bercahaya di bawah laptop -->
+            <ellipse class="glow-pulse" cx="330" cy="318" rx="215" ry="34" fill="url(#sk-floor)"/>
+
+            <!-- orbit dengan titik cahaya yang berjalan -->
+            <g transform="rotate(-8 330 205)">
+              <path id="sk-orbit-path" d="M40 205a290 128 0 1 0 580 0a290 128 0 1 0-580 0" fill="none" stroke="url(#sk-orbit)" stroke-width="2" opacity=".85" filter="url(#sk-glow)"/>
+              <circle r="5" fill="#9fd0ff" filter="url(#sk-glow)">
+                <animateMotion dur="11s" repeatCount="indefinite"><mpath href="#sk-orbit-path"/></animateMotion>
+              </circle>
+              <circle r="3.5" fill="#c7a8ff" filter="url(#sk-glow)">
+                <animateMotion dur="11s" begin="-5.5s" repeatCount="indefinite"><mpath href="#sk-orbit-path"/></animateMotion>
+              </circle>
+            </g>
+
+            <!-- laptop -->
+            <g class="f4">
+              <polygon points="248,228 390,214 452,246 262,262" fill="url(#sk-base)" stroke="#5b8dff" stroke-width="1.6" stroke-linejoin="round"/>
+              <polygon points="262,262 452,246 452,253 262,269" fill="#2b45b8" stroke="#5b8dff" stroke-width="1.2" stroke-linejoin="round"/>
+              <g stroke="#6f9bff" stroke-opacity=".5" stroke-width="1">
+                <line x1="252" y1="238" x2="409" y2="224"/>
+                <line x1="256" y1="248" x2="427" y2="233"/>
+              </g>
+              <polygon points="260,112 402,98 390,214 248,228" fill="url(#sk-screen)" stroke="#6aa0ff" stroke-width="2.4" stroke-linejoin="round" filter="url(#sk-glow)"/>
+              <text class="glow-pulse" x="326" y="178" text-anchor="middle" transform="rotate(-5 326 178)" font-family="'JetBrains Mono', Consolas, monospace" font-size="50" font-weight="700" fill="#58a6ff" filter="url(#sk-glow)">&lt;/&gt;</text>
+            </g>
+
+            <!-- panel 1: diagram blok sistem kontrol -->
+            <g class="f1">
+              <g transform="rotate(-7 150 128)">
+                <rect x="62" y="78" width="178" height="98" rx="8" fill="url(#sk-glass)" stroke="#6aa0ff" stroke-width="1.5" filter="url(#sk-glow)"/>
+                <g fill="none" stroke="#9cc8ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="106" cy="126" r="11"/>
+                  <path d="M101 121l10 10M111 121l-10 10"/>
+                  <path class="flow" d="M76 126h19"/>
+                  <path class="flow" d="M118 126h30"/>
+                  <rect x="150" y="112" width="52" height="28" rx="4"/>
+                  <path class="flow" d="M203 126h26"/>
+                  <path class="flow" d="M106 160v-21"/>
+                  <path d="M92 122l4 4-4 4M143 122l5 4-5 4M224 122l6 4-6 4M102 144l4-5 4 5"/>
+                </g>
+                <text x="176" y="131" text-anchor="middle" font-family="'JetBrains Mono', Consolas, monospace" font-size="13" fill="#bcd9ff">G(s)</text>
+              </g>
+            </g>
+
+            <!-- panel 2: grafik -->
+            <g class="f2">
+              <g transform="rotate(-4 356 80)">
+                <rect x="290" y="38" width="132" height="86" rx="8" fill="url(#sk-glass)" stroke="#6aa0ff" stroke-width="1.5" filter="url(#sk-glow)"/>
+                <g stroke="#6aa0ff" stroke-opacity=".35" stroke-width="1">
+                  <path d="M302 108h108M302 92h108M302 76h108M302 60h108"/>
+                </g>
+                <path class="draw" d="M304 106C316 70 326 66 336 90S356 118 368 82 390 50 408 92" fill="none" stroke="#7cc4ff" stroke-width="2.4" stroke-linecap="round"/>
+                <g fill="#cfe6ff">
+                  <circle cx="336" cy="90" r="2.6"/>
+                  <circle cx="368" cy="82" r="2.6"/>
+                  <circle cx="392" cy="60" r="2.6"/>
+                </g>
+              </g>
+            </g>
+
+            <!-- panel 3: otak / jaringan saraf -->
+            <g class="f3">
+              <g transform="rotate(5 520 125)">
+                <rect x="452" y="58" width="134" height="134" rx="10" fill="url(#sk-glass)" stroke="#6aa0ff" stroke-width="1.5" filter="url(#sk-glow)"/>
+                <g transform="translate(468 76) scale(4.4)" fill="none" stroke="#8cc2ff" stroke-width=".9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 2.8A3 3 0 0 0 5.2 13 3 3 0 0 0 7 17a3 3 0 0 0 5 1V5a2.5 2.5 0 0 0-3-1zM15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 2.8 3 3 0 0 1-1.2 3.2A3 3 0 0 1 17 17a3 3 0 0 1-5 1"/>
+                  <path d="M9 9h1.5M13.5 9H15M9 13h1.5M13.5 13H15M12 8v8"/>
+                </g>
+                <g fill="#d6ebff">
+                  <circle class="node" cx="507.6" cy="106.8" r="2.4"/>
+                  <circle class="node" cx="534" cy="106.8" r="2.4" style="animation-delay:-.4s"/>
+                  <circle class="node" cx="498.8" cy="128.8" r="2.4" style="animation-delay:-.8s"/>
+                  <circle class="node" cx="542.8" cy="128.8" r="2.4" style="animation-delay:-1.2s"/>
+                  <circle class="node" cx="520.8" cy="120" r="2.4" style="animation-delay:-1.6s"/>
+                  <circle class="node" cx="512" cy="142" r="2.4" style="animation-delay:-2s"/>
+                  <circle class="node" cx="529.6" cy="142" r="2.4" style="animation-delay:-.2s"/>
+                  <circle class="node" cx="520.8" cy="102.4" r="2.4" style="animation-delay:-1s"/>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </div>
+
+      </div>
+
+      <!-- Tiga kartu keahlian: ganti nama keahlian di tiap <li class="sk-item"> -->
+      <div class="sk-cards">
+
+        <article class="sk-card sc-blue" data-reveal>
+          <header class="sc-head">
+            <span class="sc-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg>
+            </span>
+            <div>
+              <h3>Control Systems &amp; Engineering</h3>
+              <p>Model, analyze, and control dynamic systems.</p>
+            </div>
+          </header>
+
+          <div class="sk-body">
+            <ul class="sk-list">
+              <li class="sk-item" style="--i:0">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg>
+                Control Systems
+              </li>
+              <li class="sk-item" style="--i:1">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="8" width="14" height="10" rx="2.5"/><path d="M12 8V5M9 13h.01M15 13h.01M3 13v2M21 13v2"/></svg>
+                Robotics
+              </li>
+              <li class="sk-item" style="--i:2">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>
+                Electrical Instrumentation
+              </li>
+              <li class="sk-item" style="--i:3">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h4l2.5-7 4 14 3-9 1.5 2H22"/></svg>
+                Signals and Systems
+              </li>
+            </ul>
+
+            <div class="sk-card-art">
+              <svg class="sk-art" viewBox="0 0 280 230" aria-hidden="true">
+                <defs>
+                  <linearGradient id="a1-metal" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#d8e8ff"/>
+                    <stop offset="1" stop-color="#5f86d6"/>
+                  </linearGradient>
+                  <linearGradient id="a1-glass" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#3b7bff" stop-opacity=".5"/>
+                    <stop offset="1" stop-color="#2fd0ff" stop-opacity=".14"/>
+                  </linearGradient>
+                  <radialGradient id="a1-floor" cx=".5" cy=".5" r=".5">
+                    <stop offset="0" stop-color="#3b82ff" stop-opacity=".6"/>
+                    <stop offset="1" stop-color="#3b82ff" stop-opacity="0"/>
+                  </radialGradient>
+                  <filter id="a1-glow" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur stdDeviation="3" result="b"/>
+                    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                </defs>
+
+                <ellipse class="glow-pulse" cx="165" cy="196" rx="118" ry="20" fill="url(#a1-floor)"/>
+
+                <g class="f1">
+                  <g transform="rotate(-6 54 96)">
+                    <rect x="8" y="58" width="92" height="76" rx="7" fill="url(#a1-glass)" stroke="#6aa0ff" stroke-width="1.4" filter="url(#a1-glow)"/>
+                    <path d="M16 76h76M16 92h76M16 108h76" stroke="#6aa0ff" stroke-opacity=".3" fill="none"/>
+                    <path class="draw" d="M16 112C28 90 36 86 46 98S66 78 78 84 88 72 92 68" fill="none" stroke="#7cc4ff" stroke-width="2.2" stroke-linecap="round"/>
+                    <g fill="#5ab4ff" fill-opacity=".85">
+                      <rect class="bar" x="20" y="116" width="7" height="14" rx="1.5"/>
+                      <rect class="bar" x="32" y="110" width="7" height="20" rx="1.5" style="animation-delay:-.6s"/>
+                      <rect class="bar" x="44" y="118" width="7" height="12" rx="1.5" style="animation-delay:-1.2s"/>
+                      <rect class="bar" x="56" y="106" width="7" height="24" rx="1.5" style="animation-delay:-1.8s"/>
+                    </g>
+                  </g>
+                </g>
+
+                <ellipse cx="165" cy="190" rx="108" ry="15" fill="#10246a" stroke="#4d8dff" stroke-width="1.5"/>
+                <ellipse cx="165" cy="187" rx="86" ry="10" fill="#1a3a96" stroke="#79b2ff" stroke-width="1.2"/>
+                <ellipse class="glow-pulse" cx="165" cy="187" rx="86" ry="10" fill="none" stroke="#7cc4ff" stroke-width="2" filter="url(#a1-glow)"/>
+
+                <rect class="glow-pulse" x="133" y="164" width="26" height="22" rx="4" fill="#1f8bff" fill-opacity=".55" stroke="#9fd0ff" filter="url(#a1-glow)"/>
+
+                <rect x="186" y="166" width="28" height="20" rx="4" fill="url(#a1-metal)" stroke="#bcd7ff"/>
+                <g class="arm1">
+                  <rect x="193" y="108" width="14" height="62" rx="7" fill="url(#a1-metal)" stroke="#bcd7ff"/>
+                  <circle cx="200" cy="112" r="9" fill="#1b3c96" stroke="#79b2ff" stroke-width="2"/>
+                  <g class="arm2">
+                    <rect x="140" y="105" width="66" height="13" rx="6.5" fill="url(#a1-metal)" stroke="#bcd7ff"/>
+                    <circle cx="146" cy="111" r="7.5" fill="#1b3c96" stroke="#79b2ff" stroke-width="2"/>
+                    <path d="M146 118v16M140 132l6 9 6-9" fill="none" stroke="#9fd0ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  </g>
+                </g>
+
+                <g fill="#9fd0ff">
+                  <circle class="twinkle" cx="236" cy="62" r="1.6"/>
+                  <circle class="twinkle" cx="118" cy="30" r="1.4" style="animation-delay:-1s"/>
+                  <circle class="twinkle" cx="262" cy="130" r="1.4" style="animation-delay:-2s"/>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </article>
+
+        <article class="sk-card sc-violet" data-reveal style="--d:1">
+          <header class="sc-head">
+            <span class="sc-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 2.8A3 3 0 0 0 5.2 13 3 3 0 0 0 7 17a3 3 0 0 0 5 1V5a2.5 2.5 0 0 0-3-1zM15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 2.8 3 3 0 0 1-1.2 3.2A3 3 0 0 1 17 17a3 3 0 0 1-5 1"/><path d="M9 9h1.5M13.5 9H15M9 13h1.5M13.5 13H15"/></svg>
+            </span>
+            <div>
+              <h3>AI &amp; Machine Learning</h3>
+              <p>Turn data into intelligent solutions.</p>
+            </div>
+          </header>
+
+          <div class="sk-body">
+            <ul class="sk-list">
+              <li class="sk-item" style="--i:0">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/></svg>
+                Machine Learning
+              </li>
+              <li class="sk-item" style="--i:1">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 2.8A3 3 0 0 0 5.2 13 3 3 0 0 0 7 17a3 3 0 0 0 5 1V5a2.5 2.5 0 0 0-3-1zM15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 2.8 3 3 0 0 1-1.2 3.2A3 3 0 0 1 17 17a3 3 0 0 1-5 1"/></svg>
+                Artificial Intelligence
+              </li>
+              <li class="sk-item" style="--i:2">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v16h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg>
+                Data Analysis
+              </li>
+              <li class="sk-item" style="--i:3">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="12" cy="11" r="2"/><circle cx="12" cy="19" r="2"/><path d="M7.5 7.5 10.6 9.6M16.5 7.5 13.4 9.6M12 13v4"/></svg>
+                Pattern Recognition
+              </li>
+            </ul>
+
+            <div class="sk-card-art">
+              <svg class="sk-art" viewBox="0 0 280 230" aria-hidden="true">
+                <defs>
+                  <linearGradient id="a2-fill" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#f0b8ff" stop-opacity=".55"/>
+                    <stop offset="1" stop-color="#6d4dff" stop-opacity=".35"/>
+                  </linearGradient>
+                  <linearGradient id="a2-beam" x1="0" y1="1" x2="0" y2="0">
+                    <stop offset="0" stop-color="#a77bff" stop-opacity=".75"/>
+                    <stop offset="1" stop-color="#a77bff" stop-opacity="0"/>
+                  </linearGradient>
+                  <radialGradient id="a2-floor" cx=".5" cy=".5" r=".5">
+                    <stop offset="0" stop-color="#8b5cf6" stop-opacity=".6"/>
+                    <stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/>
+                  </radialGradient>
+                  <filter id="a2-glow" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur stdDeviation="3" result="b"/>
+                    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                  <filter id="a2-glow-s" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation=".45" result="b"/>
+                    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                </defs>
+
+                <ellipse class="glow-pulse" cx="140" cy="198" rx="120" ry="20" fill="url(#a2-floor)"/>
+
+                <polygon points="56,172 140,150 224,172 140,196" fill="#1a1250" stroke="#8b6bff" stroke-width="1.6" stroke-linejoin="round"/>
+                <polygon points="56,172 140,196 140,204 56,180" fill="#120c3a" stroke="#8b6bff" stroke-width="1.2" stroke-linejoin="round"/>
+                <polygon points="140,196 224,172 224,180 140,204" fill="#0e0830" stroke="#8b6bff" stroke-width="1.2" stroke-linejoin="round"/>
+                <g fill="none" stroke="#b79bff" stroke-width="1.4" stroke-linecap="round">
+                  <path class="flow" d="M62 174l34-9M224 172l-34-8M84 182l30 8M196 182l-30 8"/>
+                </g>
+                <polygon class="glow-pulse" points="104,172 140,162 176,172 140,184" fill="#3b2a9a" stroke="#d6bcff" stroke-width="1.4" stroke-linejoin="round" filter="url(#a2-glow)"/>
+
+                <path class="glow-pulse" d="M112 170 L124 118 H156 L168 170 Z" fill="url(#a2-beam)"/>
+
+                <g class="f2">
+                  <g transform="translate(58.4 17.2) scale(6.8)" fill="url(#a2-fill)" stroke="#e4ccff" stroke-width=".55" stroke-linejoin="round" stroke-linecap="round" filter="url(#a2-glow-s)">
+                    <path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 2.8A3 3 0 0 0 5.2 13 3 3 0 0 0 7 17a3 3 0 0 0 5 1V5a2.5 2.5 0 0 0-3-1zM15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 2.8 3 3 0 0 1-1.2 3.2A3 3 0 0 1 17 17a3 3 0 0 1-5 1"/>
+                    <path d="M9 9h1.5M13.5 9H15M9 13h1.5M13.5 13H15M12 8v8" fill="none"/>
+                  </g>
+                  <g fill="#f3dcff">
+                    <circle class="node" cx="119.6" cy="64.8" r="2.6"/>
+                    <circle class="node" cx="160.4" cy="64.8" r="2.6" style="animation-delay:-.4s"/>
+                    <circle class="node" cx="106" cy="98.8" r="2.6" style="animation-delay:-.8s"/>
+                    <circle class="node" cx="174" cy="98.8" r="2.6" style="animation-delay:-1.2s"/>
+                    <circle class="node" cx="140" cy="85.2" r="2.6" style="animation-delay:-1.6s"/>
+                    <circle class="node" cx="126.4" cy="119.2" r="2.6" style="animation-delay:-2s"/>
+                    <circle class="node" cx="153.6" cy="119.2" r="2.6" style="animation-delay:-.2s"/>
+                    <circle class="node" cx="140" cy="58" r="2.6" style="animation-delay:-1s"/>
+                  </g>
+                </g>
+
+                <g fill="#d8c4ff">
+                  <circle class="twinkle" cx="40" cy="70" r="1.6"/>
+                  <circle class="twinkle" cx="246" cy="52" r="1.6" style="animation-delay:-1s"/>
+                  <circle class="twinkle" cx="256" cy="120" r="1.4" style="animation-delay:-2s"/>
+                  <circle class="twinkle" cx="24" cy="130" r="1.4" style="animation-delay:-.6s"/>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </article>
+
+        <article class="sk-card sc-green" data-reveal style="--d:2">
+          <header class="sc-head">
+            <span class="sc-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></svg>
+            </span>
+            <div>
+              <h3>Programming &amp; Tools</h3>
+              <p>Build reliable and efficient systems.</p>
+            </div>
+          </header>
+
+          <div class="sk-body">
+            <ul class="sk-list">
+              <li class="sk-item" style="--i:0">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#3776ab" stroke="none" d="M11.9 2C8.2 2 8.4 3.6 8.4 3.6V5.4h3.6v.6H6.9S4 5.7 4 9.5s2.5 3.6 2.5 3.6h1.5v-1.8s-.1-2.5 2.4-2.5h3.6s2.3 0 2.3-2.3V4.2S16.7 2 11.9 2zM9.6 3.5a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6z"/><path fill="#ffd43b" stroke="none" d="M12.1 22c3.7 0 3.5-1.6 3.5-1.6v-1.8h-3.6V18h5.1s2.9.3 2.9-3.5-2.5-3.6-2.5-3.6H16v1.8s.1 2.5-2.4 2.5H10s-2.3 0-2.3 2.3v3.1S7.3 22 12.1 22zm2.3-1.5a.8.8 0 1 1 0-1.6.8.8 0 0 1 0 1.6z"/></svg>
+                Python
+              </li>
+              <li class="sk-item" style="--i:1">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#ff8a3d" stroke="none" d="M2 17.5 9 9l3 3.5 3-4.5 7 9.5-6.5-2.2L12 19.5 8.5 15.3z"/></svg>
+                MATLAB
+              </li>
+              <li class="sk-item" style="--i:2">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#e34f26" stroke="none" d="M4 3h16l-1.5 16.5L12 21.5l-6.5-2z"/><text x="12" y="15.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="700" fill="#fff" stroke="none">5</text></svg>
+                HTML
+              </li>
+              <li class="sk-item" style="--i:3">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#1572b6" stroke="none" d="M4 3h16l-1.5 16.5L12 21.5l-6.5-2z"/><text x="12" y="15.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="700" fill="#fff" stroke="none">3</text></svg>
+                CSS
+              </li>
+              <li class="sk-item" style="--i:4">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2.5" fill="#f7df1e" stroke="none"/><text x="12" y="17" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="700" fill="#1a1a1a" stroke="none">JS</text></svg>
+                JavaScript
+              </li>
+            </ul>
+
+            <div class="sk-card-art">
+              <svg class="sk-art" viewBox="0 0 280 230" aria-hidden="true">
+                <defs>
+                  <linearGradient id="a3-screen" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#0a2a5a"/>
+                    <stop offset="1" stop-color="#04122e"/>
+                  </linearGradient>
+                  <linearGradient id="a3-glass" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#2dd4a7" stop-opacity=".4"/>
+                    <stop offset="1" stop-color="#3b7bff" stop-opacity=".16"/>
+                  </linearGradient>
+                  <radialGradient id="a3-floor" cx=".5" cy=".5" r=".5">
+                    <stop offset="0" stop-color="#2dd4a7" stop-opacity=".5"/>
+                    <stop offset="1" stop-color="#2dd4a7" stop-opacity="0"/>
+                  </radialGradient>
+                  <filter id="a3-glow" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur stdDeviation="3" result="b"/>
+                    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                </defs>
+
+                <ellipse class="glow-pulse" cx="156" cy="200" rx="118" ry="20" fill="url(#a3-floor)"/>
+
+                <g class="f4">
+                  <polygon points="92,152 202,138 256,168 130,188" fill="#12306a" stroke="#4d8dff" stroke-width="1.5" stroke-linejoin="round"/>
+                  <polygon points="130,188 256,168 256,175 130,195" fill="#0c2250" stroke="#4d8dff" stroke-width="1.2" stroke-linejoin="round"/>
+                  <polygon points="106,48 220,34 208,140 94,154" fill="url(#a3-screen)" stroke="#59d6ff" stroke-width="2" stroke-linejoin="round" filter="url(#a3-glow)"/>
+                  <g transform="rotate(-5 150 95)" fill="none" stroke-width="3.2" stroke-linecap="round">
+                    <path class="code-line" d="M114 66h30" stroke="#2dd4a7"/>
+                    <path class="code-line" d="M124 80h40" stroke="#5ab4ff" style="animation-delay:.3s"/>
+                    <path class="code-line" d="M124 94h26" stroke="#c9a8ff" style="animation-delay:.6s"/>
+                    <path class="code-line" d="M114 108h44" stroke="#2dd4a7" style="animation-delay:.9s"/>
+                    <path class="code-line" d="M124 122h22" stroke="#ffd166" style="animation-delay:1.2s"/>
+                    <path class="blink" d="M154 122v-8" stroke="#eaf2ff" stroke-width="2.4"/>
+                  </g>
+                  <text class="glow-pulse" x="186" y="106" text-anchor="middle" transform="rotate(-5 186 106)" font-family="'JetBrains Mono', Consolas, monospace" font-size="24" font-weight="700" fill="#4ddcff" filter="url(#a3-glow)">&lt;/&gt;</text>
+                </g>
+
+                <g class="f1">
+                  <g transform="translate(46 80)">
+                    <g class="gear">
+                      <circle r="15" fill="none" stroke="#2dd4a7" stroke-width="5" stroke-dasharray="5.89 5.89"/>
+                      <circle r="11" fill="#0b2a44" stroke="#2dd4a7" stroke-width="2"/>
+                      <circle r="4" fill="#2dd4a7"/>
+                    </g>
+                  </g>
+                </g>
+                <g class="f2">
+                  <g transform="translate(242 60) scale(.62)">
+                    <g class="gear rev">
+                      <circle r="15" fill="none" stroke="#5ab4ff" stroke-width="5" stroke-dasharray="5.89 5.89"/>
+                      <circle r="11" fill="#0b2a44" stroke="#5ab4ff" stroke-width="2"/>
+                      <circle r="4" fill="#5ab4ff"/>
+                    </g>
+                  </g>
+                </g>
+
+                <g class="f3">
+                  <g transform="rotate(-8 40 152)">
+                    <rect x="18" y="132" width="44" height="40" rx="8" fill="url(#a3-glass)" stroke="#2dd4a7" stroke-width="1.4" filter="url(#a3-glow)"/>
+                    <text x="40" y="159" text-anchor="middle" font-family="'JetBrains Mono', Consolas, monospace" font-size="17" font-weight="700" fill="#aef5de">{ }</text>
+                  </g>
+                </g>
+
+                <g fill="#9ff0d4">
+                  <circle class="twinkle" cx="120" cy="22" r="1.6"/>
+                  <circle class="twinkle" cx="262" cy="110" r="1.4" style="animation-delay:-1s"/>
+                  <circle class="twinkle" cx="18" cy="40" r="1.4" style="animation-delay:-2s"/>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Softskill -->
+      <div class="sk-soft" data-reveal>
+
+        <span class="sc-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14.2c3 .2 5 2.3 5 5.3"/></svg>
+        </span>
+
+        <div>
+          <h3>Softskill</h3>
+          <p>Key personal skills to collaborate, adapt, and grow.</p>
+          <div class="sk-mini"></div>
+        </div>
+
+        <ul class="sk-chips">
+          <li class="sk-chip" style="--i:0">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>
+            Problem Solving
+          </li>
+          <li class="sk-chip" style="--i:1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21v-3.5C6 16 5 14 5 11.5a7 7 0 0 1 14 0c0 2-1 3.2-2 4V21H8z"/><circle cx="12" cy="11" r="2.2"/><path d="M12 7v1M12 14v1M8.5 11h1M14.5 11h1"/></svg>
+            Critical Thinking
+          </li>
+          <li class="sk-chip" style="--i:2">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg>
+            Team Collaboration
+          </li>
+          <li class="sk-chip" style="--i:3">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a7 7 0 0 1-10.2 6.2L4 20l1.6-4.4A7 7 0 1 1 20 12z"/><path d="M9 12h.01M12 12h.01M15 12h.01"/></svg>
+            Communication
+          </li>
+          <li class="sk-chip" style="--i:4">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+            Innovative
+          </li>
+          <li class="sk-chip" style="--i:5">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
+            Adaptability
+          </li>
+          <li class="sk-chip" style="--i:6">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            Time Management
+          </li>
+          <li class="sk-chip" style="--i:7">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h17"/><path d="M6 20v-5M11 20v-8M16 20v-4"/><path d="m4 10 5-4 4 3 6-5"/><path d="M15 4h4v4"/></svg>
+            Analytical Thinking
+          </li>
+        </ul>
+
+      </div>
+
+      <!-- Garis penutup -->
+      <div class="sk-foot" aria-hidden="true">
+        <div class="sk-stripes"><span></span><span></span><span></span></div>
+        <div class="sk-line"></div>
+        <div class="sk-motto">LEARN<i>•</i>IMPROVE<i>•</i>INNOVATE</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== COURSES ===== -->
+
+  <section class="section crs" id="courses">
+
+    <!-- Sprite ikon (dipakai ulang lewat <use>) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <symbol id="crs-i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5M22 9v6"/></symbol>
+      <symbol id="crs-i-org" viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-5h6v5M9 11h.01M15 11h.01"/></symbol>
+      <symbol id="crs-i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+      <symbol id="crs-i-star" viewBox="0 0 24 24"><path d="m12 2.5 2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5-4.8-4.6 6.6-.9z"/></symbol>
+      <symbol id="crs-i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+      <symbol id="crs-i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+      <symbol id="crs-i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="crs-i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    </svg>
+
+    <!-- Latar: cahaya, grid sirkuit tipis, partikel -->
+    <div class="crs-bg" aria-hidden="true">
+      <span class="crs-glow g1"></span>
+      <span class="crs-glow g2"></span>
+      <span class="crs-circuit"></span>
+      <span class="crs-dot" style="--x:8%;--y:20%;--s:3px;--d:0s;--t:9s"></span>
+      <span class="crs-dot" style="--x:18%;--y:70%;--s:2px;--d:-2s;--t:11s"></span>
+      <span class="crs-dot" style="--x:33%;--y:12%;--s:3px;--d:-4s;--t:10s"></span>
+      <span class="crs-dot" style="--x:47%;--y:84%;--s:2px;--d:-1s;--t:12s"></span>
+      <span class="crs-dot" style="--x:61%;--y:30%;--s:2px;--d:-6s;--t:9s"></span>
+      <span class="crs-dot" style="--x:74%;--y:66%;--s:3px;--d:-3s;--t:13s"></span>
+      <span class="crs-dot" style="--x:88%;--y:18%;--s:2px;--d:-5s;--t:10s"></span>
+      <span class="crs-dot" style="--x:95%;--y:78%;--s:3px;--d:-7s;--t:11s"></span>
+    </div>
+
+    <div class="container crs-wrap">
+
+      <!-- Header -->
+      <header class="crs-head" data-reveal>
+        <div class="crs-head-copy">
+          <span class="crs-eyebrow">
+            <svg class="crs-ico" aria-hidden="true"><use href="#crs-i-cap"/></svg>
+            My Certifications
+          </span>
+          <h2 class="crs-title">Courses &amp; <span>Certifications</span></h2>
+          <p class="crs-sub">Continuous learning and professional development to enhance my skills in Electrical Engineering, AI, and beyond.</p>
+        </div>
+
+        <svg class="crs-art" viewBox="0 0 240 170" aria-hidden="true">
+          <defs>
+            <linearGradient id="crs-g-orbit" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#2f7bff" stop-opacity=".1"/>
+              <stop offset=".5" stop-color="#1ec8ff"/>
+              <stop offset="1" stop-color="#2f7bff" stop-opacity=".1"/>
+            </linearGradient>
+            <linearGradient id="crs-g-cap" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#7fb2ff"/>
+              <stop offset="1" stop-color="#2f5fd8"/>
+            </linearGradient>
+            <linearGradient id="crs-g-base" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#3f6fe0"/>
+              <stop offset="1" stop-color="#172f85"/>
+            </linearGradient>
+          </defs>
+          <ellipse cx="120" cy="108" rx="112" ry="36" fill="none" stroke="url(#crs-g-orbit)" stroke-width="1.5" transform="rotate(-14 120 108)"/>
+          <rect x="52" y="124" width="136" height="16" rx="3" fill="#14296e" stroke="#4d8dff"/>
+          <rect x="62" y="109" width="116" height="16" rx="3" fill="#1d3f9e" stroke="#6aa0ff"/>
+          <rect x="34" y="98" width="92" height="22" rx="11" fill="#e8f1ff" stroke="#9cc8ff" opacity=".95"/>
+          <circle cx="56" cy="109" r="9" fill="#ffc24a" stroke="#ffe19a"/>
+          <path d="M52 117l-4 12 8-4 8 4-4-12" fill="#2f7bff"/>
+          <path d="M90 60v20c0 9 18 15 40 15s40-6 40-15V60l-40 16z" fill="url(#crs-g-base)" stroke="#6aa0ff" stroke-width="1.4" stroke-linejoin="round"/>
+          <path d="M66 46 130 20l64 26-64 26z" fill="url(#crs-g-cap)" stroke="#9cc8ff" stroke-width="1.4" stroke-linejoin="round"/>
+          <path d="M130 46l48 8v32" fill="none" stroke="#7cc4ff" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M173 86h10l-2 16h-6z" fill="#ffc24a"/>
+          <circle cx="130" cy="46" r="3" fill="#e6f1ff"/>
+        </svg>
+      </header>
+
+      <!-- Grid sertifikat: satu grid, tanpa kategori -->
+      <div class="crs-grid">
+
+        <!-- 1 -->
+        <article class="crs-card" data-reveal style="--d:0" data-pdf="assets/certificates/advanced-prompt-engineering.pdf">
+          <div class="crs-thumb">
+            <img src="assets/certificates/thumbs/advanced-prompt-engineering.png" alt="Preview of the Advanced Prompt Engineering certificate" width="640" height="400" loading="lazy">
+            <span class="crs-badge"><svg class="crs-ico" aria-hidden="true"><use href="#crs-i-check"/></svg>Completed</span>
+          </div>
+          <h3 class="crs-name"><svg class="crs-ico" aria-hidden="true"><use href="#crs-i-cap"/></svg>Advanced Prompt Engineering</h3>
+          <p class="crs-org"><svg class="crs-ico" aria-hidden="true"><use href="#crs-i-org"/></svg>Deliberate Academy</p>
+          <ul class="crs-meta">
+            <li><svg class="crs-ico" aria-hidden="true"><use href="#crs-i-cal"/></svg>23 November 2026</li>
+            <li><svg class="crs-ico" aria-hidden="true"><use href="#crs-i-star"/></svg>Specialist Credential</li>
+          </ul>
+          <div class="crs-actions">
+            <a class="crs-btn" href="assets/certificates/advanced-prompt-engineering.pdf" target="_blank" rel="noopener">
+              View Certificate <svg class="crs-ico" aria-hidden="true"><use href="#crs-i-arrow"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="crs-card" data-reveal style="--d:1" data-pdf="assets/certificates/ai-for-engineering-professionals.pdf">
+          <div class="crs-thumb">
+            <img src="assets/certificates/thumbs/ai-for-engineering-professionals.png" alt="Preview of the AI for Engineering Professionals certificate" width="640" height="400" loading="lazy">
+            <span class="crs-badge"><svg class="crs-ico" aria-hidden="true"><use href="#crs-i-check"/></svg>Completed</span>
+          </div>
+          <h3 class="crs-name"><svg class="crs-ico" aria-hidden="true"><use href="#crs-i-cap"/></svg>AI for Engineering Professionals</h3>
+          <p class="crs-org"><svg class="crs-ico" aria-hidden="true"><use href="#crs-i-org"/></svg>Deliberate Academy</p>
+          <ul class="crs-meta">
+            <li><svg class="crs-ico" aria-hidden="true"><use href="#crs-i-cal"/></svg>23 November 2026</li>
+            <li><svg class="crs-ico" aria-hidden="true"><use href="#crs-i-star"/></svg>Professional Credential</li>
+          </ul>
+          <div class="crs-actions">
+            <a class="crs-btn" href="assets/certificates/ai-for-engineering-professionals.pdf" target="_blank" rel="noopener">
+              View Certificate <svg class="crs-ico" aria-hidden="true"><use href="#crs-i-arrow"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="crs-card" data-reveal style="--d:2" data-pdf="assets/certificates/ai-fundamentals-ai-professional.pdf">
+          <div class="crs-thumb">
+            <img src="assets/certificates/thumbs/ai-fundamentals-ai-professional.png" alt="Preview of the AI Fundamentals for Professionals certificate" width="640" height="400" loading="lazy">
+            <span class="crs-badge"><svg class="crs-ico" aria-hidden="true"><use href="#crs-i-check"/></svg>Completed</span>
+          </div>
+          <h3 class="crs-name"><svg class="crs-ico" aria-hidden="true"><use href="#crs-i-cap"/></svg>AI Fundamentals for Professionals</h3>
+          <p class="crs-org"><svg class="crs-ico" aria-hidden="true"><use href="#crs-i-org"/></svg>Deliberate Academy</p>
+          <ul class="crs-meta">
+            <li><svg class="crs-ico" aria-hidden="true"><use href="#crs-i-cal"/></svg>23 November 2026</li>
+            <li><svg class="crs-ico" aria-hidden="true"><use href="#crs-i-star"/></svg>Foundation Credential</li>
+          </ul>
+          <div class="crs-actions">
+            <a class="crs-btn" href="assets/certificates/ai-fundamentals-ai-professional.pdf" target="_blank" rel="noopener">
+              View Certificate <svg class="crs-ico" aria-hidden="true"><use href="#crs-i-arrow"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- 4 -->
+        <article class="crs-card" data-reveal style="--d:0" data-pdf="assets/certificates/master.encrypted.pdf">
+          <div class="crs-thumb">
+            <img src="assets/certificates/thumbs/gemini-certified-student.png" alt="Preview of the Gemini Certified Student certificate" width="640" height="400" loading="lazy">
+            <span class="crs-badge"><svg class="crs-ico" aria-hidden="true"><use href="#crs-i-check"/></svg>Certified</span>
+          </div>
+          <h3 class="crs-name"><svg class="crs-ico" aria-hidden="true"><use href="#crs-i-cap"/></svg>Gemini Certified Student</h3>
+          <p class="crs-org"><svg class="crs-ico" aria-hidden="true"><use href="#crs-i-org"/></svg>Google for Education</p>
+          <ul class="crs-meta">
+            <li><svg class="crs-ico" aria-hidden="true"><use href="#crs-i-cal"/></svg>22 November 2026 — 22 November 2029</li>
+          </ul>
+          <div class="crs-actions">
+            <a class="crs-btn" href="assets/certificates/master.encrypted.pdf" target="_blank" rel="noopener">
+              View Certificate <svg class="crs-ico" aria-hidden="true"><use href="#crs-i-arrow"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- 5 -->
+        <article class="crs-card" data-reveal style="--d:1" data-pdf="assets/certificates/vibe-coding.pdf">
+          <div class="crs-thumb">
+            <img src="assets/certificates/thumbs/vibe-coding.png" alt="Preview of the Vibe Coding certificate" width="640" height="400" loading="lazy">
+            <span class="crs-badge"><svg class="crs-ico" aria-hidden="true"><use href="#crs-i-check"/></svg>Completed</span>
+          </div>
+          <h3 class="crs-name"><svg class="crs-ico" aria-hidden="true"><use href="#crs-i-cap"/></svg>Vibe Coding: Build a Small App with an AI Coding Tool</h3>
+          <p class="crs-org"><svg class="crs-ico" aria-hidden="true"><use href="#crs-i-org"/></svg>Herizon</p>
+          <ul class="crs-meta">
+            <li><svg class="crs-ico" aria-hidden="true"><use href="#crs-i-cal"/></svg>23 November 2026</li>
+          </ul>
+          <div class="crs-actions">
+            <a class="crs-btn" href="assets/certificates/vibe-coding.pdf" target="_blank" rel="noopener">
+              View Certificate <svg class="crs-ico" aria-hidden="true"><use href="#crs-i-arrow"/></svg>
+            </a>
+            <a class="crs-verify" href="https://portal.herizon.io/c/14a93f28-ef17-4d2d-bf6c-8aab0a2d1ec7" target="_blank" rel="noopener">
+              <svg class="crs-ico" aria-hidden="true"><use href="#crs-i-shield"/></svg>Verify credential
+            </a>
+          </div>
+        </article>
+
+        <!-- 6 -->
+        <article class="crs-card" data-reveal style="--d:2" data-pdf="assets/certificates/web-development-fundamental.pdf">
+          <div class="crs-thumb">
+            <img src="assets/certificates/thumbs/web-development-fundamental.png" alt="Preview of the Web Development Fundamentals certificate" width="640" height="400" loading="lazy">
+            <span class="crs-badge"><svg class="crs-ico" aria-hidden="true"><use href="#crs-i-check"/></svg>Completed</span>
+          </div>
+          <h3 class="crs-name"><svg class="crs-ico" aria-hidden="true"><use href="#crs-i-cap"/></svg>Web Development Fundamentals</h3>
+          <p class="crs-org"><svg class="crs-ico" aria-hidden="true"><use href="#crs-i-org"/></svg>Herizon</p>
+          <ul class="crs-meta">
+            <li><svg class="crs-ico" aria-hidden="true"><use href="#crs-i-cal"/></svg>23 November 2026</li>
+          </ul>
+          <div class="crs-actions">
+            <a class="crs-btn" href="assets/certificates/web-development-fundamental.pdf" target="_blank" rel="noopener">
+              View Certificate <svg class="crs-ico" aria-hidden="true"><use href="#crs-i-arrow"/></svg>
+            </a>
+            <a class="crs-verify" href="https://portal.herizon.io/c/395e3f60-f23e-4f7c-bbc2-5dde39f6501c" target="_blank" rel="noopener">
+              <svg class="crs-ico" aria-hidden="true"><use href="#crs-i-shield"/></svg>Verify credential
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+
+  <section class="section contact" id="contact">
+    <div class="container contact-grid">
+      <div class="contact-copy">
+      <h2 class="section-title">Contact</h2>
+      <p>Open to opportunities in Control Systems, Artificial Intelligence, Machine Learning, and Electrical Systems. Let's connect!</p>
+
+      <div class="social-buttons">
+
+        <a class="social-btn primary" href="assets/CV_Surya_Wardana.pdf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 20h16"/></svg>
+          Resume
+        </a>
+
+        <div class="email-group">
+          <a class="social-btn"
+             href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=suryawardana2603@gmail.com&amp;su=Portfolio%20Reachout%20-%20%5BCompany%2FIndividual%5D&amp;body=Hi%20Surya%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20wanted%20to%20reach%20out.%0A%0A%5BAdd%20your%20message%20here%5D%0A%0ABest%2C%0A%5BName%5D"
+             target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            Email
+          </a>
+          <button class="copy-email-btn" type="button" data-copy-email aria-label="Copy email address" title="Copy email address">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
+          </button>
+        </div>
+
+        <a class="social-btn" href="https://www.linkedin.com/in/suryawardana2603" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          LinkedIn
+        </a>
+
+        <a class="social-btn" href="https://github.com/surya2603-byte?tab=repositories" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.921.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          GitHub
+        </a>
+
+      </div>
+
+      <p class="location">Tangerang Selatan, Banten, Indonesia</p>
+      </div><!-- /contact-copy -->
+
+      <div class="contact-photo">
+        <img src="assets/pose.png" alt="Surya Wardana" width="672" height="921">
+      </div>
+
+    </div><!-- /contact-grid -->
+  </section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a class="footer-brand" href="#home">Surya <em>Wardana</em></a>
+
+    <nav class="footer-links" aria-label="Footer">
+      <a href="#courses">Certifications</a>
+      <a href="assets/CV_Surya_Wardana.pdf" target="_blank" rel="noopener">Résumé <span aria-hidden="true">↗</span></a>
+    </nav>
+
+    <p class="footer-copy">© 2026 Surya Wardana</p>
+  </div>
+</footer>
+
+<script src="js/theme.js" defer></script>
+<script src="js/nav.js" defer></script>
+<script src="js/copy-email.js" defer></script>
+<script src="js/hero-fx.js" defer></script>
+<script src="js/waves.js" defer></script>
+<script src="js/skills.js" defer></script>
+<script src="js/education.js" defer></script>
+<script src="js/experience-data.js" defer></script>
+<script src="js/experience.js" defer></script>
+<script src="js/courses.js" defer></script>
+<script src="js/projects-data.js" defer></script>
+<script src="js/projects.js" defer></script>
+
+</body>
+</html>

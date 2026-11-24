@@ -1,0 +1,62 @@
+/* ===== CONTACT: teks dan tombol di kiri, foto bulat di kanan ===== */
+
+.contact {
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-grid {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.contact-copy {
+  align-self: center;
+}
+
+/* Bola = foto. Seluruh badan atas terlihat di dalam lingkaran */
+.contact-photo {
+  position: relative;
+  width: 100%;
+  max-width: 26rem;
+  aspect-ratio: 1;
+  margin-inline: auto 0;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--cyan);
+  box-shadow: 0 0 60px rgba(47, 123, 255, .35);
+  background: #f5f5f5; /* sama dengan warna latar foto */
+}
+
+.contact-photo img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 102%;          /* menyembunyikan strip hitam tipis di bawah foto */
+  width: auto;
+  max-width: none;
+  transform: translateX(-50%);
+}
+
+/* titik-titik hiasan di pojok kanan bawah */
+.contact-grid::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  width: 7rem;
+  height: 5rem;
+  background-image: radial-gradient(circle, var(--cyan) 1.6px, transparent 2px);
+  background-size: 16px 16px;
+  opacity: .6;
+}
+
+@media (max-width: 800px) {
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-photo { max-width: 20rem; margin-inline: auto; }
+}

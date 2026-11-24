@@ -1,0 +1,293 @@
+/* ===== HERO: bagian pembuka seperti gambar "keren" =====
+   Hero selalu bertema gelap (seperti gambar contoh), baik saat
+   situs memakai mode gelap maupun terang. */
+
+.hero {
+  /* paksa warna gelap di dalam hero */
+  --text: #eaf2ff;
+  --muted: #9db0cb;
+  --cyan: #1ec8ff;
+  --blue: #2f7bff;
+  --panel: rgba(12, 26, 52, .62);
+  --line: rgba(70, 150, 255, .22);
+  --line-strong: rgba(70, 170, 255, .55);
+  --grad: linear-gradient(90deg, #2f7bff, #1ec8ff);
+  --glow: 0 0 28px rgba(30, 200, 255, .35);
+  color-scheme: dark;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: calc(100svh - var(--header-h));
+  padding: 3rem 0 6.5rem;
+  overflow: hidden;
+  color: var(--text);
+  background:
+    radial-gradient(50rem 32rem at 78% 40%, rgba(30, 90, 255, .16), transparent 65%),
+    #010a18;               /* sama dengan warna latar gambar globe */
+}
+
+.hero .container {
+  width: min(86rem, 100% - 3rem);
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
+}
+
+/* ----- Gelombang listrik di dasar hero (js/waves.js) ----- */
+
+.hero-waves {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 52%;
+  pointer-events: none;
+  opacity: .95;
+}
+
+/* Satu animasi masuk saat halaman dibuka, teks muncul berurutan */
+.hero-copy > * {
+  animation: rise .7s cubic-bezier(.2, .7, .2, 1) both;
+  animation-delay: calc(var(--i, 0) * 90ms);
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.hello {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  margin-bottom: 1.4rem;
+  padding: .4rem 1.1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--cyan);
+  font-weight: 500;
+}
+
+.hello::before {
+  content: "";
+  width: .6rem;
+  height: .6rem;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+}
+
+.hero h1 {
+  font-size: clamp(2.9rem, 6.2vw, 5.4rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -.025em;
+  white-space: nowrap;
+}
+
+.grad {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.tagline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .3rem 1.6rem;
+  margin: 1.3rem 0 2.2rem;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+  font-size: clamp(0.9rem, 1.3vw, 1.15rem);
+}
+
+.tagline li::before {
+  content: "•";
+  margin-right: .6rem;
+  color: var(--cyan);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2.6rem;
+}
+
+/* ----- Statistik ----- */
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero-stats li {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  padding-right: 1.6rem;
+  margin-right: 1.6rem;
+  border-right: 1px solid var(--line-strong);
+}
+
+.hero-stats li:last-child { border-right: 0; margin-right: 0; padding-right: 0; }
+
+.hero-stats svg {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: none;
+  stroke: var(--cyan);
+  filter: drop-shadow(0 0 6px rgba(30, 200, 255, .5));
+}
+
+.stat-value {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.stat-label {
+  display: block;
+  color: var(--muted);
+  font-size: .92rem;
+  line-height: 1.3;
+}
+
+/* ----- Visual kanan: gambar globe asli + gerakan di atasnya ----- */
+
+.hero-visual {
+  position: relative;
+  isolation: isolate;                 /* supaya blend hanya terjadi di dalam kotak ini */
+  width: 100%;
+  max-width: 47rem;
+  aspect-ratio: 799 / 716;
+  margin-inline: auto 0;
+}
+
+/* Gambar globe + dudukan, tidak diubah. Tepinya dihaluskan agar menyatu dengan latar. */
+.globe-img {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: screen;             /* ikon di belakang globe terlihat menembus kaca */
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0, #000 9%, #000 91%, transparent 100%),
+    linear-gradient(to bottom, transparent 0, #000 7%, #000 90%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent 0, #000 9%, #000 91%, transparent 100%),
+    linear-gradient(to bottom, transparent 0, #000 7%, #000 90%, transparent 100%);
+  mask-composite: intersect;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+#fx {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Ikon yang mengorbit; posisi dan skala diatur js/hero-fx.js */
+.orbit-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 4;
+  width: 11.8%;
+  height: auto;
+  will-change: transform, opacity;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ----- Petunjuk scroll ----- */
+
+.scroll-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 1.2rem;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: .3rem;
+  transform: translateX(-50%);
+  color: var(--muted);
+  font-size: .9rem;
+  text-decoration: none;
+}
+
+.scroll-hint svg { width: 1.6rem; height: 2.4rem; stroke: var(--text); }
+
+.scroll-hint .wheel {
+  animation: wheel 1.8s ease-in-out infinite;
+}
+
+@keyframes wheel {
+  0%   { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(6px); opacity: 0; }
+}
+
+@media (max-width: 960px) {
+  .hero { padding-bottom: 5.5rem; }
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-visual { max-width: 30rem; order: -1; margin-inline: auto; }
+  .hero h1 { white-space: normal; }
+  .hero-waves { height: 40%; }
+}
+
+@media (max-width: 520px) {
+  .hero-stats li { padding-right: 1rem; margin-right: 1rem; }
+}
+
+:root[data-theme="light"] .hero {
+  --text: #0e1a33;
+  --muted: #4a5c7a;
+  --cyan: #0a86c8;
+  --blue: #1d5fe0;
+  --panel: rgba(255, 255, 255, .82);
+  --line: rgba(30, 90, 200, .18);
+  --line-strong: rgba(30, 90, 200, .45);
+  --grad: linear-gradient(90deg, #1d5fe0, #0a9fd8);
+  --glow: 0 0 22px rgba(29, 95, 224, .22);
+  color-scheme: light;
+
+  background:
+    radial-gradient(50rem 32rem at 78% 40%, rgba(29, 95, 224, .12), transparent 65%),
+    #f4f8ff;
+}
+
+/* globe dibalik warnanya: garis gelap di latar terang */
+:root[data-theme="light"] .hero-visual {
+  isolation: auto;
+}
+
+:root[data-theme="light"] .globe-img {
+  filter: invert(1) hue-rotate(180deg);
+  mix-blend-mode: multiply;
+}
+
+:root[data-theme="light"] .hero-stats svg {
+  filter: none;
+}

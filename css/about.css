@@ -1,0 +1,138 @@
+/* ===== ABOUT: foto berbingkai + teks ===== */
+
+.about {
+  --grid: rgba(60, 130, 255, .30);
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0 7rem;
+}
+
+:root[data-theme="light"] .about { --grid: rgba(30, 90, 200, .20); }
+
+/* Lantai kisi berperspektif di dasar section */
+.about::after {
+  content: "";
+  position: absolute;
+  left: -15%;
+  right: -15%;
+  bottom: 0;
+  height: 85%;
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 64px 64px;
+  background-position: center bottom;
+  transform: perspective(520px) rotateX(64deg);
+  transform-origin: 50% 100%;
+  -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 78%);
+  mask-image: linear-gradient(to top, #000 0%, transparent 78%);
+  opacity: .7;
+  pointer-events: none;
+}
+
+.about-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(17rem, 22.5rem) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+/* ----- Bingkai foto ----- */
+
+.frame {
+  position: relative;
+  margin: 0;
+  padding: 1.7rem;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-radius: 28px;
+  background:
+    linear-gradient(160deg,
+      color-mix(in srgb, var(--blue) 16%, var(--panel-solid)),
+      var(--panel-solid) 70%);
+  box-shadow: var(--glow);
+}
+
+.frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../assets/circuit.svg") center / 100% 100% no-repeat;
+  opacity: .6;
+  pointer-events: none;
+}
+
+.frame-inner {
+  position: relative;
+  aspect-ratio: 5 / 6;
+  overflow: hidden;
+  border: 2px solid var(--blue);
+  border-radius: 18px;
+  background: var(--panel-solid);
+  box-shadow:
+    0 0 0 4px rgba(47, 123, 255, .16),
+    0 0 28px rgba(47, 123, 255, .55);
+}
+
+.frame-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+/* ----- Teks ----- */
+
+.about-eyebrow {
+  margin: 0 0 .8rem;
+  color: var(--muted);
+  font-size: .95rem;
+  font-weight: 500;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.about-title {
+  max-width: 24ch;
+  margin-bottom: 1.5rem;
+  font-size: clamp(2rem, 4.4vw, 3.1rem);
+  font-weight: 700;
+  line-height: 1.12;
+}
+
+.about-text p:not(.about-eyebrow) {
+  max-width: 44rem;
+  font-size: 1.06rem;
+  color: color-mix(in srgb, var(--text) 90%, transparent);
+}
+
+.about-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  margin-top: 1.2rem;
+  padding: .85rem 1.5rem;
+  border: 1.5px solid var(--blue);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--blue) 12%, transparent);
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 0 22px rgba(47, 123, 255, .35);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.about-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 32px rgba(47, 123, 255, .65);
+}
+
+.about-cta svg { width: 1.1rem; height: 1.1rem; }
+
+@media (max-width: 800px) {
+  .about { padding-bottom: 5rem; }
+  .about-grid { grid-template-columns: 1fr; }
+  .frame { max-width: 20rem; margin-inline: auto; }
+}

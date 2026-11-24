@@ -1,0 +1,55 @@
+/* ===== VARIABEL: warna, font, ukuran =====
+   Ubah warna tema di sini saja. Mode gelap = default,
+   mode terang aktif saat <html data-theme="light"> */
+
+:root {
+  color-scheme: dark;
+
+  --bg: #040a18;
+  --bg-glow-a: rgba(47, 123, 255, .20);
+  --bg-glow-b: rgba(30, 200, 255, .09);
+  --panel: rgba(12, 26, 52, .62);
+  --panel-solid: #0c1a34;
+  --line: rgba(70, 150, 255, .22);
+  --line-strong: rgba(70, 170, 255, .55);
+
+  --text: #eaf2ff;
+  --muted: #9db0cb;
+
+  --cyan: #1ec8ff;
+  --blue: #2f7bff;
+  --accent: #ffb23e;
+  --ok: #34d399;
+
+  --grad: linear-gradient(90deg, #2f7bff, #1ec8ff);
+  --glow: 0 0 28px rgba(30, 200, 255, .35);
+
+  --font-head: "Sora", "Trebuchet MS", sans-serif;
+  --font-body: "Inter", "Segoe UI", Arial, sans-serif;
+
+  --radius: 16px;
+  --header-h: 4.5rem;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --bg: #f4f8ff;
+  --bg-glow-a: rgba(47, 123, 255, .14);
+  --bg-glow-b: rgba(30, 200, 255, .10);
+  --panel: rgba(255, 255, 255, .82);
+  --panel-solid: #ffffff;
+  --line: rgba(30, 90, 200, .18);
+  --line-strong: rgba(30, 90, 200, .45);
+
+  --text: #0e1a33;
+  --muted: #4a5c7a;
+
+  --cyan: #0a86c8;
+  --blue: #1d5fe0;
+  --accent: #c2620a;
+  --ok: #15803d;
+
+  --grad: linear-gradient(90deg, #1d5fe0, #0a9fd8);
+  --glow: 0 0 22px rgba(29, 95, 224, .22);
+}
