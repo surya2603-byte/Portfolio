@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 
@@ -14,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Pasang tema tersimpan lebih awal supaya halaman tidak berkedip -->
+  <!-- Apply the saved theme early to prevent a flash of the wrong theme. -->
   <script>
     try {
       var saved = localStorage.getItem("theme");
@@ -131,8 +132,8 @@
       </div>
 
       <div class="hero-visual" aria-hidden="true">
-        <!-- Ikon yang mengorbit. data-ring = jalur (0 atau 1), data-phase = posisi awal.
-             Hapus satu <img> untuk membuang ikon itu. -->
+        <!-- Orbiting icons. data-ring defines the orbit path (0 or 1), while data-phase sets the initial position.
+             Remove an <img> element to remove its icon. -->
         <img class="orbit-icon" src="assets/icons/aiml.png"       data-ring="0" data-phase="3.6" alt="">
         <img class="orbit-icon" src="assets/icons/python.png"     data-ring="1" data-phase="4.5" alt="">
 
@@ -152,7 +153,7 @@
     </a>
   </section>
 
-<!-- ===== ABOUT ===== -->
+  <!-- ===== ABOUT ===== -->
 
   <section class="section about" id="about">
     <div class="container about-grid">
@@ -234,7 +235,7 @@
 
   <section class="section edu" id="education">
 
-    <!-- latar: cahaya, partikel, gelombang -->
+    <!-- Background effects: glows, particles, and waves. -->
     <div class="edu-bg" aria-hidden="true">
       <span class="edu-glow g1"></span>
       <span class="edu-glow g2"></span>
@@ -270,7 +271,7 @@
 
     <div class="container edu-wrap">
 
-      <!-- topi toga melayang -->
+      <!-- Floating graduation cap illustration. -->
       <svg class="edu-cap" viewBox="0 0 160 130" aria-hidden="true">
         <defs>
           <linearGradient id="edu-cap-g" x1="0" y1="0" x2="1" y2="1">
@@ -377,7 +378,7 @@
   <section class="section skills" id="skills">
     <div class="container">
 
-      <!-- Bagian atas: judul + ilustrasi -->
+      <!-- Section heading and illustration. -->
       <div class="sk-hero">
 
         <div class="sk-copy" data-reveal>
@@ -420,7 +421,7 @@
               </filter>
             </defs>
 
-            <!-- bintang kecil berkedip -->
+            <!-- Twinkling stars. -->
             <g fill="#9fd0ff">
               <circle class="twinkle" cx="140" cy="58" r="1.6"/>
               <circle class="twinkle" cx="430" cy="150" r="1.4" style="animation-delay:-1s"/>
@@ -430,10 +431,10 @@
               <circle class="twinkle" cx="300" cy="24" r="1.4" style="animation-delay:-2.5s"/>
             </g>
 
-            <!-- lantai bercahaya di bawah laptop -->
+            <!-- Glowing floor beneath the laptop. -->
             <ellipse class="glow-pulse" cx="330" cy="318" rx="215" ry="34" fill="url(#sk-floor)"/>
 
-            <!-- orbit dengan titik cahaya yang berjalan -->
+            <!-- Orbit with moving light particles. -->
             <g transform="rotate(-8 330 205)">
               <path id="sk-orbit-path" d="M40 205a290 128 0 1 0 580 0a290 128 0 1 0-580 0" fill="none" stroke="url(#sk-orbit)" stroke-width="2" opacity=".85" filter="url(#sk-glow)"/>
               <circle r="5" fill="#9fd0ff" filter="url(#sk-glow)">
@@ -444,7 +445,7 @@
               </circle>
             </g>
 
-            <!-- laptop -->
+            <!-- Laptop illustration. -->
             <g class="f4">
               <polygon points="248,228 390,214 452,246 262,262" fill="url(#sk-base)" stroke="#5b8dff" stroke-width="1.6" stroke-linejoin="round"/>
               <polygon points="262,262 452,246 452,253 262,269" fill="#2b45b8" stroke="#5b8dff" stroke-width="1.2" stroke-linejoin="round"/>
@@ -456,7 +457,7 @@
               <text class="glow-pulse" x="326" y="178" text-anchor="middle" transform="rotate(-5 326 178)" font-family="'JetBrains Mono', Consolas, monospace" font-size="50" font-weight="700" fill="#58a6ff" filter="url(#sk-glow)">&lt;/&gt;</text>
             </g>
 
-            <!-- panel 1: diagram blok sistem kontrol -->
+            <!-- Panel 1: control system block diagram. -->
             <g class="f1">
               <g transform="rotate(-7 150 128)">
                 <rect x="62" y="78" width="178" height="98" rx="8" fill="url(#sk-glass)" stroke="#6aa0ff" stroke-width="1.5" filter="url(#sk-glow)"/>
@@ -474,7 +475,7 @@
               </g>
             </g>
 
-            <!-- panel 2: grafik -->
+            <!-- Panel 2: data visualization. -->
             <g class="f2">
               <g transform="rotate(-4 356 80)">
                 <rect x="290" y="38" width="132" height="86" rx="8" fill="url(#sk-glass)" stroke="#6aa0ff" stroke-width="1.5" filter="url(#sk-glow)"/>
@@ -490,7 +491,7 @@
               </g>
             </g>
 
-            <!-- panel 3: otak / jaringan saraf -->
+            <!-- Panel 3: brain and neural network. -->
             <g class="f3">
               <g transform="rotate(5 520 125)">
                 <rect x="452" y="58" width="134" height="134" rx="10" fill="url(#sk-glass)" stroke="#6aa0ff" stroke-width="1.5" filter="url(#sk-glow)"/>
@@ -515,7 +516,7 @@
 
       </div>
 
-      <!-- Tiga kartu keahlian: ganti nama keahlian di tiap <li class="sk-item"> -->
+      <!-- Three skill cards. Update the skill names inside each .sk-item element. -->
       <div class="sk-cards">
 
         <article class="sk-card sc-blue" data-reveal>
@@ -820,7 +821,7 @@
 
       </div>
 
-      <!-- Softskill -->
+      <!-- Soft skills. -->
       <div class="sk-soft" data-reveal>
 
         <span class="sc-icon">
@@ -870,7 +871,7 @@
 
       </div>
 
-      <!-- Garis penutup -->
+      <!-- Section closing element. -->
       <div class="sk-foot" aria-hidden="true">
         <div class="sk-stripes"><span></span><span></span><span></span></div>
         <div class="sk-line"></div>
@@ -884,7 +885,7 @@
 
   <section class="section crs" id="courses">
 
-    <!-- Sprite ikon (dipakai ulang lewat <use>) -->
+    <!-- Reusable icon sprites. -->
     <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
       <symbol id="crs-i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5M22 9v6"/></symbol>
       <symbol id="crs-i-org" viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-5h6v5M9 11h.01M15 11h.01"/></symbol>
@@ -896,7 +897,7 @@
       <symbol id="crs-i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
     </svg>
 
-    <!-- Latar: cahaya, grid sirkuit tipis, partikel -->
+    <!-- Background effects: glows, subtle circuit grid, and particles. -->
     <div class="crs-bg" aria-hidden="true">
       <span class="crs-glow g1"></span>
       <span class="crs-glow g2"></span>
@@ -913,7 +914,7 @@
 
     <div class="container crs-wrap">
 
-      <!-- Header -->
+      <!-- Section header. -->
       <header class="crs-head" data-reveal>
         <div class="crs-head-copy">
           <span class="crs-eyebrow">
@@ -954,7 +955,7 @@
         </svg>
       </header>
 
-      <!-- Grid sertifikat: satu grid, tanpa kategori -->
+      <!-- Certificate grid. -->
       <div class="crs-grid">
 
         <!-- 1 -->
@@ -1118,13 +1119,13 @@
       </div>
 
       <p class="location">Tangerang Selatan, Banten, Indonesia</p>
-      </div><!-- /contact-copy -->
+      </div><!-- End of contact-copy -->
 
       <div class="contact-photo">
         <img src="assets/pose.png" alt="Surya Wardana" width="672" height="921">
       </div>
 
-    </div><!-- /contact-grid -->
+    </div><!-- End of contact-grid -->
   </section>
 
 </main>

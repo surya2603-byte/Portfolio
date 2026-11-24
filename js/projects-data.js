@@ -1,3 +1,4 @@
+
 window.PROJECTS = [
   {
     id: "eeg-vmd-butterworth",
@@ -12,12 +13,12 @@ window.PROJECTS = [
     thumbnail: "assets/exp/eeg1.jpeg",
     heroImage: "assets/exp/eeg1.jpeg",
     gallery: [
-        { src: "assets/exp/eeg2.jpeg", alt: "Deskripsi singkat foto" },
-        { src: "assets/exp/eeg3.jpeg", alt: "Deskripsi singkat foto" },
-        { src: "assets/exp/eeg4.jpeg", alt: "Deskripsi singkat foto" },
-        { src: "assets/exp/eeg5.jpeg", alt: "Deskripsi singkat foto" },
-        { src: "assets/exp/eeg6.jpeg", alt: "Deskripsi singkat foto" },
-        { src: "assets/exp/eeg7.jpeg", alt: "Deskripsi singkat foto" }
+        { src: "assets/exp/eeg2.jpeg", alt: "EEG signal analysis visualization" },
+        { src: "assets/exp/eeg3.jpeg", alt: "EEG signal processing results" },
+        { src: "assets/exp/eeg4.jpeg", alt: "VMD signal decomposition results" },
+        { src: "assets/exp/eeg5.jpeg", alt: "Butterworth filtering results" },
+        { src: "assets/exp/eeg6.jpeg", alt: "EEG denoising performance comparison" },
+        { src: "assets/exp/eeg7.jpeg", alt: "Research publication documentation" }
 
     ],
     challenge: "EEG recordings often contain unwanted noise and artifacts that can interfere with the analysis of brain signals. These disturbances make it difficult to obtain clean data, highlighting the need for filtering methods that can improve signal quality without losing important information.",
@@ -32,7 +33,6 @@ window.PROJECTS = [
     link: { label: "Read the paper (DOI)", url: "https://doi.org/10.35882/ijeeemi.v7i3.105" }
   },
 
-  
   {
     id: "project-2",
     title: "MRI-Based Cardiac Image Segmentation Using Deep Learning",
@@ -46,9 +46,9 @@ window.PROJECTS = [
     thumbnail: "assets/exp/mri4.jpeg",
     heroImage: "assets/exp/mri4.jpeg",
     gallery: [
-        { src: "assets/exp/mri1.png", alt: "Deskripsi singkat foto" },
-        { src: "assets/exp/mri2.png", alt: "Deskripsi singkat foto" },
-        { src: "assets/exp/mri3.jpeg", alt: "Deskripsi singkat foto" }
+        { src: "assets/exp/mri1.png", alt: "Cardiac MRI image segmentation visualization" },
+        { src: "assets/exp/mri2.png", alt: "Deep learning segmentation results" },
+        { src: "assets/exp/mri3.jpeg", alt: "Cardiac image analysis documentation" }
     ],
     challenge: "Identifying cardiac structures in MRI images requires accurate separation of regions with different shapes and boundaries. Variations in image characteristics make automated segmentation challenging, particularly when distinguishing the ventricular chambers and myocardium.",
     solution: "Developed a deep learning-based image segmentation model using a ResNet50 architecture. The model was trained on MRI images and their corresponding segmentation masks to identify three cardiac regions. Training parameters were also evaluated to determine a suitable configuration for segmentation performance.",
@@ -75,11 +75,11 @@ window.PROJECTS = [
     thumbnail: "assets/exp/debu3.jpeg",
     heroImage: "assets/exp/debu3.jpeg",
     gallery: [
-        { src: "assets/exp/debu1.jpeg", alt: "Deskripsi singkat foto" },
-        { src: "assets/exp/debu2.jpeg", alt: "Deskripsi singkat foto" },
-        { src: "assets/exp/debu3.jpeg", alt: "Deskripsi singkat foto" },
-        { src: "assets/exp/debu4.jpeg", alt: "Deskripsi singkat foto" },
-        { src: "assets/exp/debuvideo.mp4", poster: "assets/exp/debu5.jpeg", alt: "Rekaman proses segmentasi" }
+        { src: "assets/exp/debu1.jpeg", alt: "Indoor air quality monitoring system" },
+        { src: "assets/exp/debu2.jpeg", alt: "Sensor and hardware assembly" },
+        { src: "assets/exp/debu3.jpeg", alt: "Completed air quality monitoring prototype" },
+        { src: "assets/exp/debu4.jpeg", alt: "System testing and implementation" },
+        { src: "assets/exp/debuvideo.mp4", poster: "assets/exp/debu5.jpeg", alt: "Air quality monitoring system demonstration" }
     ],
     challenge: "Indoor air pollution can go unnoticed without continuous monitoring, particularly when smoke, carbon monoxide, and dust accumulate in enclosed spaces. Manual inspection makes it difficult to track changing air conditions and respond quickly when pollution levels increase.",
     solution: "Developed an integrated monitoring and ventilation system using an ESP32 microcontroller and two air quality sensors. Sensor readings are processed to determine air conditions, while a relay controls the exhaust fan based on predefined thresholds. The system also sends sensor data to Blynk IoT, providing real-time monitoring through a smartphone.",
@@ -93,7 +93,7 @@ window.PROJECTS = [
     result: "The system successfully monitored indoor air conditions and controlled the exhaust fan based on sensor readings. Wireless data transmission through Blynk IoT remained reliable up to 13 meters, with a response time of 0.5–1 second and 0% transmission error. Testing also confirmed that the fan responded correctly to the OR logic between the MQ-7 and dust sensors, activating whenever either sensor detected pollution above its threshold."
   },
 
-    {
+  {
     id: "project-4",
     title: "BrainBoost – Digital Learning Platform",
     cardSummary: "A web-based learning platform for junior high school students.",
@@ -106,11 +106,11 @@ window.PROJECTS = [
     thumbnail: "assets/exp/brain5.jpeg",
     heroImage: "assets/exp/brain5.jpeg",
     gallery: [
-        { src: "assets/exp/brain1.jpeg", alt: "Keterangan foto 1" },
-        { src: "assets/exp/brain2.jpeg", alt: "Keterangan foto 2" },
-        { src: "assets/exp/brain3.jpeg", alt: "Keterangan foto 2" },
-        { src: "assets/exp/brain4.jpeg", alt: "Keterangan foto 2" },
-        { src: "assets/exp/brain5.jpeg", alt: "Keterangan foto 2" }
+        { src: "assets/exp/brain1.jpeg", alt: "BrainBoost learning platform interface" },
+        { src: "assets/exp/brain2.jpeg", alt: "Administrator dashboard interface" },
+        { src: "assets/exp/brain3.jpeg", alt: "Teacher dashboard interface" },
+        { src: "assets/exp/brain4.jpeg", alt: "Student learning dashboard interface" },
+        { src: "assets/exp/brain5.jpeg", alt: "BrainBoost platform overview" }
     ],
     challenge: "Managing learning materials, student records, and classroom activities across different users can become difficult without a centralized platform. Students also need a more flexible way to access learning materials beyond traditional classroom sessions.",
     solution: "Designed a web-based e-learning platform with dedicated dashboards for administrators, teachers, and students. The system organizes academic data, allows teachers to upload learning materials and assignments, and provides students with direct access to their subjects and lessons through a centralized interface.",
@@ -125,7 +125,7 @@ window.PROJECTS = [
     result: "Successfully developed a web-based e-learning platform with dedicated dashboards for three user roles. The system supports academic data management, learning material uploads, and student access to lessons and assignments. Testing showed that key functions, including registration, login, data validation, and dashboard navigation, operated as expected, providing a more structured approach to digital learning."
   },
 
-    {
+  {
     id: "project-5",
     title: "Wi-Fi Network Design and Performance Evaluation",
     cardSummary: "Designing and evaluating a Linux-based Wi-Fi network using an access point.",
@@ -138,9 +138,9 @@ window.PROJECTS = [
     thumbnail: "assets/exp/nirkabel1.jpeg",
     heroImage: "assets/exp/nirkabel1.jpeg",
     gallery: [
-        { src: "assets/exp/nirkabel1.jpeg", alt: "Keterangan foto 1" },
-        { src: "assets/exp/nirkabel2.jpeg", alt: "Keterangan foto 2" },
-        { src: "assets/exp/nirkabel3.jpeg", alt: "Keterangan foto 2" }
+        { src: "assets/exp/nirkabel1.jpeg", alt: "Linux-based Wi-Fi network setup" },
+        { src: "assets/exp/nirkabel2.jpeg", alt: "Wireless access point configuration" },
+        { src: "assets/exp/nirkabel3.jpeg", alt: "Network performance testing and evaluation" }
 
     ],
     challenge: "Wireless network performance can vary across connected devices due to differences in connection conditions, distance, and network interference. Without proper testing, it is difficult to identify performance variations and determine whether a network can provide stable connectivity for multiple clients.",
@@ -156,7 +156,7 @@ window.PROJECTS = [
     result: "The network achieved a maximum throughput of 13.2 Mbps on Client 3, while average delay ranged from 1 to 3 ms across all four clients. All clients recorded 0% packet loss, demonstrating stable data transmission during testing. These results confirmed that the Linux-based access point successfully supported simultaneous wireless connections."
   },
 
-      {
+  {
     id: "project-6",
     title: "NeuroScan ASD – EEG-Based Brain Signal Monitoring",
     cardSummary: "An EEG-based innovation for monitoring human brain activity.",
@@ -169,10 +169,10 @@ window.PROJECTS = [
     thumbnail: "assets/exp/scan1.jpeg",
     heroImage: "assets/exp/scan1.jpeg",
     gallery: [
-        { src: "assets/exp/scan1.jpeg", alt: "Keterangan foto 1" },
-        { src: "assets/exp/scan2.mp4", poster: "assets/exp/scan5.jpeg", alt: "Rekaman proses pemasangan" },
-        { src: "assets/exp/scan3.mp4", poster: "assets/exp/scan5.jpeg", alt: "Rekaman kawasan expo" },
-        { src: "assets/exp/scan4.jpg", alt: "Keterangan foto 2" }
+        { src: "assets/exp/scan1.jpeg", alt: "NeuroScan ASD project exhibition display" },
+        { src: "assets/exp/scan2.mp4", poster: "assets/exp/scan5.jpeg", alt: "EEG equipment setup demonstration" },
+        { src: "assets/exp/scan3.mp4", poster: "assets/exp/scan5.jpeg", alt: "Innovation exhibition walkthrough" },
+        { src: "assets/exp/scan4.jpg", alt: "NeuroScan ASD exhibition documentation" }
 
     ],
     challenge: "Understanding human brain activity requires the ability to capture and interpret electrical signals. Making this information accessible through an innovative technology platform presents an important challenge in brain signal monitoring.",

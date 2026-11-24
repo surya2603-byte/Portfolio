@@ -1,4 +1,5 @@
-/* ===== LAYOUT: header, navigasi, section, footer ===== */
+
+/* Layout: Header & Navigation */
 
 .site-header {
   position: sticky;
@@ -53,7 +54,6 @@
 .nav-list a:hover,
 .nav-list a.active { color: var(--text); }
 
-/* garis menyala di bawah menu yang sedang aktif */
 .nav-list a.active::after {
   content: "";
   position: absolute;
@@ -95,6 +95,8 @@
 
 .menu-btn svg { width: 1.4rem; height: 1.4rem; margin: auto; }
 
+/* Responsive Navigation */
+
 @media (max-width: 1100px) {
   .menu-btn { display: inline-flex; }
 
@@ -123,7 +125,7 @@
   }
 }
 
-/* ----- Section ----- */
+/* Section Layout */
 
 .section {
   padding: 5rem 0;
@@ -154,7 +156,7 @@
   color: var(--muted);
 }
 
-/* ----- Footer ----- */
+/* Footer */
 
 .site-footer {
   padding: 1.6rem 0;
@@ -199,11 +201,14 @@
   margin: 0;
 }
 
+/* Mobile Layout */
+
 @media (max-width: 700px) {
   .footer-inner {
     grid-template-columns: 1fr;
     justify-items: center;
     text-align: center;
   }
+
   .footer-brand, .footer-copy { justify-self: center; }
 }

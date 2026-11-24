@@ -1,38 +1,40 @@
-# Portfolio Surya Wardana
 
-Website statis (HTML + CSS + JS biasa). Tidak perlu build, tidak perlu npm.
+# Surya Wardana Portfolio
 
-## Struktur
+A static website built with plain HTML, CSS, and JavaScript. No build tools or npm required.
 
-```
+## Project Structure
+
+```text
 portfolio/
-├── index.html              ← isi konten halaman (teks, section)
+├── index.html                 ← page content (text and sections)
 ├── css/
-│   ├── variables.css       ← warna & font (ubah tema di sini)
-│   ├── base.css            ← reset & gaya dasar
-│   ├── layout.css          ← header, navigasi, section, footer
-│   ├── hero.css            ← bagian pembuka (globe, statistik)
-│   └── components.css      ← tombol, kartu, timeline, chip, kontak
+│   ├── variables.css          ← colors and fonts (edit theme here)
+│   ├── base.css               ← reset and base styles
+│   ├── layout.css             ← header, navigation, sections, and footer
+│   ├── hero.css               ← hero section (globe and statistics)
+│   └── components.css         ← buttons, cards, timeline, chips, and contact
 ├── js/
-│   ├── theme.js            ← mode gelap/terang
-│   ├── nav.js              ← menu mobile & menu aktif
-│   ├── copy-email.js       ← tombol salin email
-│   ├── hero-fx.js          ← gerakan globe: ikon mengorbit, riak, partikel, komet
-│   └── waves.js            ← gelombang cahaya listrik di dasar hero
+│   ├── theme.js               ← dark/light mode
+│   ├── nav.js                 ← mobile menu and active navigation
+│   ├── copy-email.js          ← copy email button
+│   ├── hero-fx.js             ← globe animations: orbiting icons, ripples, particles, and comets
+│   └── waves.js               ← electric light waves at the bottom of the hero section
 └── assets/
     ├── logo.svg
-    ├── hero-globe.png      ← gambar globe + dudukan (dari desain, tidak diubah)
-    ├── icons/              ← ikon Python, React, Node.js, JavaScript, AI/ML
-    ├── fotobaru.png        ← LETAKKAN foto Anda di sini
-    └── CV_Surya_Wardana.pdf ← LETAKKAN CV Anda di sini (tanpa spasi)
+    ├── hero-globe.png         ← globe and stand image (original design, unchanged)
+    ├── icons/                 ← Python, React, Node.js, JavaScript, and AI/ML icons
+    ├── fotobaru.png           ← PLACE YOUR PHOTO HERE
+    └── CV_Surya_Wardana.pdf   ← PLACE YOUR CV HERE (no spaces in the filename)
+
+## How to Run
+
+- Right-click `index.html` in VS Code and select **Open with Live Server**, or
+- Open `index.html` directly in your browser.
+
+## Deploy to GitHub Pages
+
+Upload the entire contents of the `portfolio/` folder to your repository, then enable GitHub Pages:
+
+Settings → Pages → Branch: `main` / Folder: `/ (root)`
 ```
-
-## Cara menjalankan
-
-- Klik kanan `index.html` di VS Code → **Open with Live Server**, atau
-- buka `index.html` langsung di browser.
-
-## Deploy ke GitHub Pages
-
-Upload seluruh isi folder `portfolio/` ke repository, lalu aktifkan
-Settings → Pages → Branch `main` / root.

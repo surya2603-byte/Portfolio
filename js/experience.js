@@ -1,5 +1,6 @@
-/* ===== EXPERIENCE: carousel 3D, timeline, panel detail, galeri =====
-   Data ada di js/experience-data.js. Tanpa library tambahan. */
+
+/* ===== EXPERIENCE: 3D carousel, timeline, detail panel, and gallery
+   Data is stored in js/experience-data.js. No additional libraries required. */
 
 (function () {
   var root = document.getElementById("experience");
@@ -16,7 +17,7 @@
 
   var cat = "organizations", active = 0, items = [], cards = [];
 
-  /* ---------- util ---------- */
+  /* ---------- Utilities ---------- */
 
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
@@ -37,7 +38,7 @@
 
   function wrapIdx(i, n) { return (i % n + n) % n; }
 
-  /* swipe / drag generik. Mengembalikan state.moved supaya klik setelah drag bisa diabaikan */
+  /* Generic swipe and drag handler. Returns state.moved to prevent clicks after dragging */
   function swipe(el, cb) {
     var st = { moved: false }, down = false, sx = 0, dx = 0;
     el.addEventListener("pointerdown", function (e) {
@@ -69,7 +70,7 @@
     return st;
   }
 
-  /* ---------- carousel ---------- */
+  /* ---------- Carousel ---------- */
 
   function logoHTML(it, size) {
     var inner = it.logo
@@ -230,7 +231,7 @@
     if (cards[active]) cards[active].focus({ preventScroll: true });
   }
 
-  /* ---------- galeri ---------- */
+  /* ---------- Gallery ---------- */
 
   function galleryHTML(list, chrome) {
     if (!list || !list.length) return "";
@@ -284,7 +285,7 @@
     go(0);
   }
 
-  /* ---------- lightbox ---------- */
+  /* ---------- Lightbox ---------- */
 
   var lb = document.createElement("div");
   lb.className = "exp-lightbox";
@@ -343,7 +344,7 @@
   });
   swipe($(".exp-lb-view", lb), { next: function () { lbGo(lbIdx + 1); }, prev: function () { lbGo(lbIdx - 1); } });
 
-  /* ---------- panel detail ---------- */
+  /* ---------- Detail Panel ---------- */
 
   var modal = document.createElement("div");
   modal.className = "exp-modal";
@@ -470,9 +471,9 @@
     if (e.key === "Escape") closeDetail(); else trap(e, panel);
   });
 
-    /* ---------- geser otomatis ---------- */
+  /* ---------- Auto-Advance ---------- */
 
-  var AUTO_MS = 4500;   // jeda antar kartu, dalam milidetik (4500 = 4,5 detik)
+  var AUTO_MS = 4500;   // Time between cards in milliseconds (4500 = 4.5 seconds)
   var autoTimer = 0, hovering = false;
 
   function autoStop() {
@@ -486,25 +487,25 @@
     autoTimer = setInterval(function () {
       if (items.length < 2) return;
       if (hovering || document.hidden) return;
-      if (root.classList.contains("is-off")) return;            // section tidak terlihat
-      if (modal.classList.contains("is-open") || lbOpen) return; // panel detail terbuka
+      if (root.classList.contains("is-off")) return;             // Section is not visible
+      if (modal.classList.contains("is-open") || lbOpen) return; // Detail panel is open
       if (stage.classList.contains("dragging")) return;
       setActive(active >= items.length - 1 ? 0 : active + 1);
     }, AUTO_MS);
   }
 
-  // Berhenti saat kursor di atas carousel
+  // Pause when the pointer is over the carousel
   stage.addEventListener("pointerenter", function (e) { if (e.pointerType === "mouse") hovering = true; });
   stage.addEventListener("pointerleave", function () { hovering = false; });
 
-  // Setiap kali pengunjung berinteraksi, hitung mundur diulang dari awal
+  // Restart the timer whenever the visitor interacts with the carousel
   stage.addEventListener("pointerdown", autoStart);
   tl.addEventListener("click", autoStart);
   btnPrev.addEventListener("click", autoStart);
   btnNext.addEventListener("click", autoStart);
   tabs.forEach(function (b) { b.addEventListener("click", autoStart); });
 
-  /* ---------- awal ---------- */
+  /* ---------- Initialization ---------- */
 
   build();
   moveGlow();
@@ -517,7 +518,7 @@
   });
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { moveGlow(); layout(); });
 
-  /* animasi masuk + jeda animasi latar saat section di luar layar */
+  /* Scroll reveal animation and pause background animations when the section is outside the viewport */
   var reveals = $$("[data-reveal]");
   if (reduce || !("IntersectionObserver" in window)) {
     reveals.forEach(function (el) { el.classList.add("in"); });

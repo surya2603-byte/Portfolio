@@ -1,8 +1,9 @@
-/* ===== SKILLS: animasi saat di-scroll =====
-   - elemen bertanda data-reveal muncul saat masuk layar
-   - bar keahlian terisi sampai angka data-level
-   - angka persen berhitung naik dari 0
-   Untuk mengubah tingkat keahlian, cukup ubah data-level di index.html. */
+
+/* ===== SKILLS: scroll-triggered animations =====
+   - elements marked with data-reveal appear when they enter the viewport
+   - skill bars fill up to the value specified in data-level
+   - percentage counters count up from 0
+   To change skill levels, simply update data-level in index.html. */
 
 (function () {
   var root = document.getElementById("skills");
@@ -22,7 +23,7 @@
     if (el) el.textContent = Math.round(v) + "%";
   }
 
-  // lebar bar diambil dari data-level, angka tampil sesuai
+  // Set bar width and percentage value based on data-level
   rows.forEach(function (row) {
     row.style.setProperty("--level", levelOf(row) + "%");
     setValue(row, levelOf(row));
@@ -30,11 +31,11 @@
 
   var targets = Array.prototype.slice.call(root.querySelectorAll("[data-reveal]"));
 
-  // Tanpa animasi: tampilkan semuanya langsung
+  // Without animations: show all elements immediately
   if (reduce || !("IntersectionObserver" in window)) {
     targets.forEach(function (el) { el.classList.add("in"); });
     if (reduce) {
-      // titik cahaya orbit di ilustrasi ikut dimatikan
+      // Disable orbiting light particles in the illustration
       root.querySelectorAll("animateMotion").forEach(function (m) {
         if (m.parentNode) m.parentNode.removeChild(m);
       });

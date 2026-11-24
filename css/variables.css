@@ -1,6 +1,7 @@
-/* ===== VARIABEL: warna, font, ukuran =====
-   Ubah warna tema di sini saja. Mode gelap = default,
-   mode terang aktif saat <html data-theme="light"> */
+
+/* ===== THEME VARIABLES =====
+   Customize colors, typography, and layout settings here.
+   Dark mode is the default; light mode uses data-theme="light". */
 
 :root {
   color-scheme: dark;
@@ -30,6 +31,8 @@
   --radius: 16px;
   --header-h: 4.5rem;
 }
+
+/* Light theme overrides */
 
 :root[data-theme="light"] {
   color-scheme: light;

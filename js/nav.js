@@ -1,11 +1,12 @@
-/* ===== NAVIGASI: menu mobile dan penanda menu aktif ===== */
+
+/* ===== NAVIGATION: mobile menu and active menu indicator ===== */
 
 (function () {
   var nav = document.getElementById("site-nav");
   var menuBtn = document.getElementById("menu-btn");
   if (!nav || !menuBtn) return;
 
-  // Buka/tutup menu di layar kecil
+  // Open or close the menu on smaller screens
   function setMenu(open) {
     nav.classList.toggle("open", open);
     menuBtn.setAttribute("aria-expanded", String(open));
@@ -23,7 +24,7 @@
     if (e.key === "Escape") setMenu(false);
   });
 
-  // Tandai menu sesuai section yang sedang terlihat
+  // Highlight the menu item based on the currently visible section
   var links = Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]'));
   var map = {};
   links.forEach(function (a) { map[a.getAttribute("href").slice(1)] = a; });

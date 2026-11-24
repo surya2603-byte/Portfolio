@@ -1,7 +1,4 @@
-/* ===== COURSES & CERTIFICATIONS =====
-   Semua selector diawali .crs- supaya tidak bentrok dengan section lain.
-   Warna memakai variabel dari variables.css (gelap + terang otomatis). */
-
+/* courses section, everything prefixed with .crs- to avoid clashes */
 .crs { position: relative; overflow: hidden; }
 
 .crs-ico {
@@ -15,8 +12,7 @@
   stroke-linejoin: round;
 }
 
-/* ----- Latar ----- */
-
+/* background */
 .crs-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
 
 .crs-glow { position: absolute; border-radius: 50%; filter: blur(90px); }
@@ -31,10 +27,12 @@
     linear-gradient(90deg, var(--line) 1px, transparent 1px);
   background-size: 56px 56px;
   opacity: .16;
+  /* fade the grid out toward the bottom left */
   -webkit-mask-image: radial-gradient(ellipse at 75% 0%, #000, transparent 65%);
   mask-image: radial-gradient(ellipse at 75% 0%, #000, transparent 65%);
 }
 
+/* position, size and timing come from inline vars */
 .crs-dot {
   position: absolute;
   left: var(--x);
@@ -55,8 +53,7 @@
 
 .crs-wrap { position: relative; z-index: 1; }
 
-/* ----- Header ----- */
-
+/* header */
 .crs-head {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -89,6 +86,7 @@
   line-height: 1.1;
 }
 
+/* color is the fallback if background-clip isn't supported */
 .crs-title span {
   color: var(--cyan);
   background: var(--grad);
@@ -111,8 +109,7 @@
   50% { transform: translateY(-8px); }
 }
 
-/* ----- Grid: 3 kolom desktop, 2 tablet, 1 mobile ----- */
-
+/* cards: 3 cols desktop, 2 tablet, 1 mobile */
 .crs-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -138,8 +135,7 @@
   box-shadow: 0 16px 40px rgba(0, 0, 0, .25), var(--glow);
 }
 
-/* ----- Pratinjau ----- */
-
+/* certificate preview */
 .crs-thumb {
   position: relative;
   aspect-ratio: 16 / 10;
@@ -149,6 +145,7 @@
   background: color-mix(in srgb, var(--panel-solid) 85%, #fff);
 }
 
+/* top-aligned so the certificate title stays visible when cropped */
 .crs-thumb > img,
 .crs-thumb > canvas {
   display: block;
@@ -191,8 +188,7 @@
 
 .crs-badge .crs-ico { width: .9rem; height: .9rem; stroke-width: 2.6; }
 
-/* ----- Teks kartu ----- */
-
+/* card text */
 .crs-name {
   display: flex;
   align-items: flex-start;
@@ -226,8 +222,7 @@
   list-style: none;
 }
 
-/* ----- Tombol ----- */
-
+/* buttons, margin-top:auto pins them to the bottom of the card */
 .crs-actions {
   display: grid;
   gap: .55rem;
@@ -259,6 +254,7 @@
   box-shadow: var(--glow);
 }
 
+/* dark text on the gradient is unreadable in light mode */
 :root[data-theme="light"] .crs-btn:hover,
 :root[data-theme="light"] .crs-btn:focus-visible { color: #fff; }
 
@@ -278,8 +274,7 @@
 .crs-verify:hover { color: var(--cyan); }
 .crs-verify .crs-ico { width: 1rem; height: 1rem; }
 
-/* ----- Animasi masuk layar (dipicu js/courses.js) ----- */
-
+/* scroll reveal, .in is added from js/courses.js */
 .crs.js-ready [data-reveal]:not(.in) { opacity: 0; transform: translateY(22px); }
 
 .crs [data-reveal].in {
@@ -291,11 +286,9 @@
   from { opacity: 0; transform: translateY(22px); }
 }
 
-/* hemat tenaga: hentikan animasi latar saat section di luar layar */
+/* pause bg animations while the section is offscreen */
 .crs.is-off .crs-dot,
 .crs.is-off .crs-art { animation-play-state: paused; }
-
-/* ----- Responsif ----- */
 
 @media (max-width: 1000px) {
   .crs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }

@@ -1,8 +1,9 @@
-/* ===== WAVES: gelombang cahaya listrik di dasar hero =====
-   Pita garis biru tipis yang melebar di kiri, menyempit di tengah, lalu
-   naik ke arah dudukan globe, seperti di gambar contoh. Garisnya
-   mengalir pelan, dan titik cahaya (komet kecil) berlari di sepanjang
-   garis seperti arus listrik. Digambar di <canvas id="waves">. */
+
+/* ===== WAVES: electric light waves at the bottom of the hero section =====
+   Thin blue lines spread out on the left, narrow toward the center, then
+   rise toward the globe stand, following the reference image. The lines
+   flow slowly, while glowing particles (small comets) travel along them
+   like electric currents. Rendered on <canvas id="waves">. */
 
 (function () {
   var canvas = document.getElementById("waves");
@@ -11,10 +12,10 @@
   var ctx = canvas.getContext("2d");
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // ===== PENGATURAN (ubah di sini) =====
-  var LINES = 38;          // jumlah garis dalam pita
-  var FLOW = 0.00045;      // kecepatan aliran gelombang
-  var SPARKS = 14;         // jumlah titik cahaya yang berlari
+  // ===== SETTINGS (edit here) =====
+  var LINES = 38;          // number of lines in the wave band
+  var FLOW = 0.00045;      // wave flow speed
+  var SPARKS = 14;         // number of moving light particles
   var SPARK_SPEED = 0.00011;
 
   var W = 0, H = 0;
@@ -28,7 +29,7 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
-  // Lebar pita: lebar di kiri, sempit di sekitar 30% layar, melebar lagi di kanan
+  // Wave band width: wide on the left, narrow around 30% of the screen, then wider on the right
   function spread(x) {
     var n = x / W;
     return H * (0.05
@@ -36,7 +37,7 @@
       + 0.11 * Math.exp(-Math.pow((n - 0.78) / 0.20, 2)));
   }
 
-  // Garis tengah pita: turun dari kiri ke bawah, lalu naik pelan ke kanan
+  // Wave band centerline: slopes downward from the left, then gradually rises toward the right
   function center(x, t) {
     var n = x / W;
     return H * (0.70 - 0.22 * Math.exp(-Math.pow(n / 0.30, 2)) - 0.14 * Math.max(0, n - 0.35))
@@ -44,7 +45,7 @@
   }
 
   function lineY(x, j, t) {
-    var u = (j / (LINES - 1)) * 2 - 1;                       // -1 .. 1
+    var u = (j / (LINES - 1)) * 2 - 1;                       // -1 to 1
     var breathe = 1 + 0.07 * Math.sin(t * 0.0009 + j * 0.35);
     var twist = H * 0.012 * Math.sin(x * 0.011 + j * 0.65 + t * 0.0014);
     return center(x, t) + u * spread(x) * breathe + twist;
@@ -57,10 +58,10 @@
 
     var step = Math.max(6, Math.round(W / 220));
 
-    // 1) garis-garis pita
+    // 1) Wave band lines
     for (var j = 0; j < LINES; j++) {
       var u = Math.abs((j / (LINES - 1)) * 2 - 1);
-      var alpha = 0.10 + 0.26 * (1 - u);                      // garis tengah lebih terang
+      var alpha = 0.10 + 0.26 * (1 - u);                      // center lines are brighter
       ctx.strokeStyle = "rgba(45,140,255," + alpha.toFixed(3) + ")";
       ctx.lineWidth = j % 7 === 0 ? 1.4 : 0.8;
       ctx.beginPath();
@@ -72,7 +73,7 @@
       ctx.stroke();
     }
 
-    // 2) titik cahaya yang berlari di sepanjang garis (arus listrik)
+    // 2) Moving light particles traveling along the lines (electric currents)
     for (var s = 0; s < SPARKS; s++) {
       var line = Math.round(((s * 7 + 3) % LINES));
       var prog = ((t * SPARK_SPEED * (0.8 + (s % 5) * 0.12)) + s / SPARKS) % 1;
@@ -108,7 +109,7 @@
 
   function loop(time) {
     if (!running) return;
-    frame(time * FLOW / 0.00045);                              // FLOW mengatur laju waktu
+    frame(time * FLOW / 0.00045);                              // FLOW controls the animation time scale
     window.requestAnimationFrame(loop);
   }
 

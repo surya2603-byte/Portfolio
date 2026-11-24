@@ -1,6 +1,5 @@
-/* ===== PROJECTS: carousel 3D + halaman detail =====
-   Memakai variabel dari variables.css (--cyan, --blue, --line, --grad, dst).
-   Mode terang/gelap otomatis mengikuti <html data-theme>. */
+
+/* Projects Section */
 
 #projects {
   position: relative;
@@ -22,7 +21,8 @@
   --prj-media: #dfe9fb;
 }
 
-/* ----- latar ----- */
+/* Background */
+
 .prj-bg { position: absolute; inset: 0; pointer-events: none; }
 .prj-bgl { position: absolute; width: 38rem; height: 38rem; border-radius: 50%; filter: blur(90px); opacity: .5; }
 .prj-bgl.a { left: -12rem; top: -10rem; background: var(--bg-glow-a); }
@@ -44,13 +44,15 @@
 
 .prj-wrap { position: relative; z-index: 1; }
 
-/* ----- transisi antar tampilan ----- */
+/* View Transitions */
+
 [data-prj-host] { transition: opacity .24s ease, transform .24s ease; }
 [data-prj-host].is-out { opacity: 0; transform: translateY(14px); }
 #projects.js-ready [data-reveal]:not(.in) { opacity: 0; transform: translateY(22px); }
 #projects [data-reveal] { transition: opacity .6s ease calc(var(--d, 0) * .1s), transform .6s cubic-bezier(.2, .8, .2, 1) calc(var(--d, 0) * .1s); }
 
-/* ----- kepala ----- */
+/* Section Header */
+
 .prj-pill {
   display: inline-flex; align-items: center; padding: .32rem .9rem; border: 1px solid var(--line-strong);
   border-radius: 999px; background: var(--panel); color: var(--cyan); font-size: .86rem; font-weight: 600;
@@ -68,7 +70,8 @@
 .prj-aside { display: grid; gap: .7rem; justify-items: end; text-align: right; }
 .prj-sub { max-width: 16rem; margin: 0; color: var(--muted); font-size: .9rem; }
 
-/* animasi sinyal: garis bercahaya yang berjalan */
+/* Signal Animation */
+
 .prj-signal {
   position: relative; width: clamp(210px, 24vw, 330px); height: 64px; padding: 0 .5rem; overflow: hidden;
   border: 1px solid var(--line-strong); border-radius: 999px; background: var(--panel);
@@ -85,6 +88,8 @@
 .prj-signal .live { stroke: var(--cyan); stroke-width: 2.6; stroke-dasharray: 18 82; filter: drop-shadow(0 0 5px var(--cyan)); animation: prj-signal 3.2s linear infinite; }
 @keyframes prj-signal { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
 @keyframes prj-sweep { 0% { transform: translateX(-100%); } 60%, 100% { transform: translateX(100%); } }
+
+/* 3D Carousel */
 
 .prj-stage {
   --cw: clamp(270px, 33vw, 460px);
@@ -118,7 +123,6 @@
 .prj-card.is-hover .prj-tilt { transition-duration: .14s, .4s; }
 .prj-card.is-center .prj-tilt { --bc: var(--cyan); box-shadow: var(--prj-shadow), 0 0 44px -6px var(--prj-halo); }
 
-/* border menyala mengikuti cursor */
 .prj-tilt::before {
   content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1.5px; pointer-events: none;
   background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 0%), var(--cyan), transparent 62%), linear-gradient(var(--bc), var(--bc));
@@ -126,7 +130,6 @@
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor; mask-composite: exclude;
 }
-/* cahaya yang mengikuti cursor */
 .prj-spot {
   position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .35s ease;
   background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%), rgba(120, 220, 255, .20), transparent 60%);
@@ -145,7 +148,6 @@
   transform: translateZ(40px) translate3d(calc(var(--px, 0) * 6px), calc(var(--py, 0) * 5px), 0);
 }
 
-/* kartu hanya berisi satu penjelasan ringkas (cardSummary); judul lengkap dan deskripsi ada di halaman detail */
 .prj-body { padding: .8rem .5rem .6rem; transform: translateZ(24px) translate3d(calc(var(--px, 0) * 3px), calc(var(--py, 0) * 3px), 0); }
 .prj-body p {
   margin: 0; padding-right: 2.8rem; color: var(--prj-ink); font-size: .95rem; font-weight: 600; line-height: 1.4;
@@ -163,7 +165,8 @@
   background: radial-gradient(ellipse at center, var(--prj-halo), transparent 70%); filter: blur(12px);
 }
 
-/* ----- kontrol ----- */
+/* Carousel Controls */
+
 .prj-controls { display: flex; align-items: center; justify-content: center; gap: 1.2rem; margin-top: 2.6rem; }
 .prj-count { min-width: 4.5rem; text-align: center; font-family: var(--font-head); font-weight: 600; font-variant-numeric: tabular-nums; }
 .prj-arrow {
@@ -176,7 +179,8 @@
 .prj-arrow.sm { width: 2.4rem; height: 2.4rem; flex: none; }
 .prj-arrow:focus-visible, .prj-back:focus-visible, .prj-thumb:focus-visible, .prj-full:focus-visible, .prj-link:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
 
-/* ----- detail ----- */
+/* Project Details */
+
 .prj-back {
   display: inline-flex; align-items: center; gap: .5rem; margin-bottom: 1.6rem; padding: .45rem .9rem .45rem .6rem;
   border: 1px solid var(--line); border-radius: 999px; background: var(--panel); color: var(--muted); font: 500 .94rem var(--font-body); cursor: pointer;
@@ -204,7 +208,8 @@
 .prj-chip { padding: .28rem .8rem; border: 1px solid var(--line-strong); border-radius: 999px; background: rgba(30, 200, 255, .08); font-size: .86rem; font-weight: 500; }
 .prj-chips.sm .prj-chip { font-size: .78rem; padding: .18rem .65rem; }
 
-/* foto mengisi sisa tinggi kolom kiri, jadi bawahnya selalu sejajar dengan bawah panel Project Details */
+/* Project Gallery */
+
 .prj-gal { flex: 1; display: flex; flex-direction: column; margin-top: 1.3rem; }
 .prj-main {
   position: relative; flex: 1; display: flex; flex-direction: column; margin: 0; overflow: hidden; border: 1px solid var(--line-strong); border-radius: 20px; background: var(--prj-media);
@@ -236,6 +241,8 @@
 .prj-thumb:hover { opacity: 1; transform: translateY(-2px); }
 .prj-thumb.on { opacity: 1; border-color: var(--cyan); box-shadow: 0 0 16px var(--prj-halo); }
 
+/* Project Information */
+
 .prj-panel {
   position: sticky; top: calc(var(--header-h) + 1rem); padding: 1.5rem; border: 1px solid var(--line-strong); border-radius: 20px;
   background: var(--panel); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); box-shadow: 0 0 40px -14px var(--prj-halo);
@@ -254,7 +261,8 @@
 .prj-ric svg { width: 1.15rem; height: 1.15rem; }
 .prj-muted { color: var(--muted); }
 
-/* ----- challenge / solution / features / result ----- */
+/* Project Story */
+
 .prj-story { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; margin-top: 2.6rem; }
 .prj-scard {
   padding: 1.4rem 1.5rem; border: 1px solid var(--line); border-radius: 18px; background: var(--panel);
@@ -269,7 +277,8 @@
 .prj-feats svg { flex: none; width: 1.1rem; height: 1.1rem; margin-top: .2rem; color: var(--cyan); }
 .prj-link { display: inline-block; margin-top: .8rem; color: var(--cyan); font-weight: 600; text-underline-offset: 3px; }
 
-/* ----- placeholder foto ----- */
+/* Image Placeholder */
+
 .prj-ph {
   width: 100%; height: 100%; min-height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem;
   color: var(--cyan); font-size: .82rem; font-weight: 500;
@@ -277,7 +286,8 @@
 }
 .prj-ph svg { width: 2rem; height: 2rem; opacity: .85; }
 
-/* ----- lightbox ----- */
+/* Lightbox */
+
 .prj-lock { overflow: hidden; }
 .prj-lb { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; padding: 3.5rem 1rem; background: rgba(2, 6, 16, .93); animation: prj-fade .25s ease; }
 .prj-lb[hidden] { display: none; }
@@ -294,7 +304,8 @@
 .prj-lb-nav.r { right: 1rem; }
 .prj-lb.single .prj-lb-nav { display: none; }
 
-/* ----- responsif ----- */
+/* Responsive Layout */
+
 @media (max-width: 960px) {
   .prj-dgrid { grid-template-columns: 1fr; }
   .prj-panel { position: static; }
@@ -321,8 +332,8 @@
   #projects [data-reveal] { opacity: 1 !important; transform: none !important; }
 }
 
+/* Video Gallery */
 
-/* ----- video di galeri ----- */
 .prj-main-img video { width: 100%; height: 100%; object-fit: contain; display: block; background: transparent; }
 .prj-main-img:has(video) { cursor: auto; }
 .prj-thumb { position: relative; }

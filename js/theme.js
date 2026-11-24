@@ -1,6 +1,8 @@
-/* ===== TEMA: gelap (default) / terang =====
-   Pilihan disimpan di localStorage. Script kecil di <head> index.html
-   memasang tema lebih awal agar tidak berkedip saat halaman dibuka. */
+
+/* ===== THEME: dark (default) / light =====
+   The selected theme is saved in localStorage. A small script in the
+   <head> of index.html applies the theme early to prevent flashing
+   when the page loads. */
 
 (function () {
   var root = document.documentElement;
@@ -14,12 +16,12 @@
     document.dispatchEvent(new CustomEvent("themechange", { detail: theme }));
   }
 
-  // sinkronkan tombol dengan tema yang sudah dipasang di <head>
+  // Sync the toggle button with the theme already applied in the <head>
   apply(root.getAttribute("data-theme") || "dark");
 
   btn.addEventListener("click", function () {
     var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
     apply(next);
-    try { localStorage.setItem("theme", next); } catch (e) { /* abaikan */ }
+    try { localStorage.setItem("theme", next); } catch (e) { /* ignore */ }
   });
 })();

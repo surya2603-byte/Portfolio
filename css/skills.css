@@ -1,5 +1,6 @@
-/* ===== SKILLS: dashboard keahlian dengan animasi =====
-   Mode gelap = default. Mode terang ada di blok paling bawah file ini. */
+
+/* ===== SKILLS SECTION =====
+   Dark mode is the default. Light mode is defined at the bottom. */
 
 .skills {
   --text: #eaf2ff;
@@ -22,7 +23,8 @@
     linear-gradient(180deg, #030818, #050b24 60%, #040a1c);
 }
 
-/* gumpalan cahaya yang bergerak pelan di latar */
+/* Animated background effects */
+
 .skills::before,
 .skills::after {
   content: "";
@@ -61,7 +63,7 @@
   width: min(80rem, 100% - 3rem);
 }
 
-/* ----- Munculnya elemen saat di-scroll (diatur js/skills.js) ----- */
+/* Scroll reveal animations */
 
 .skills.js-ready [data-reveal] {
   opacity: 0;
@@ -78,7 +80,7 @@
   transition-delay: calc(var(--d, 0) * 120ms);
 }
 
-/* ===== Bagian atas: judul + ilustrasi ===== */
+/* Hero section: heading and illustration */
 
 .sk-hero {
   display: grid;
@@ -99,7 +101,11 @@
   font-weight: 500;
 }
 
-.sk-pill svg { width: 1.1rem; height: 1.1rem; color: var(--cyan); }
+.sk-pill svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  color: var(--cyan);
+}
 
 .sk-title {
   margin: .9rem 0 1.1rem;
@@ -134,7 +140,7 @@
   background: linear-gradient(90deg, var(--cyan), transparent);
 }
 
-/* ----- Ilustrasi SVG ----- */
+/* SVG illustration animations */
 
 .sk-art {
   display: block;
@@ -158,7 +164,9 @@
   animation: skDash 1.2s linear infinite;
 }
 
-@keyframes skDash { to { stroke-dashoffset: -24; } }
+@keyframes skDash {
+  to { stroke-dashoffset: -24; }
+}
 
 .sk-art .draw {
   stroke-dasharray: 300;
@@ -171,7 +179,9 @@
   100%      { stroke-dashoffset: -300; }
 }
 
-.sk-art .glow-pulse { animation: skGlow 3s ease-in-out infinite; }
+.sk-art .glow-pulse {
+  animation: skGlow 3s ease-in-out infinite;
+}
 
 @keyframes skGlow {
   0%, 100% { opacity: .55; }
@@ -186,17 +196,19 @@
 
 @keyframes skNode {
   0%, 100% { opacity: .35; transform: scale(.7); }
-  50%      { opacity: 1;   transform: scale(1.4); }
+  50%      { opacity: 1; transform: scale(1.4); }
 }
 
-.sk-art .twinkle { animation: skTwinkle 3s ease-in-out infinite; }
+.sk-art .twinkle {
+  animation: skTwinkle 3s ease-in-out infinite;
+}
 
 @keyframes skTwinkle {
   0%, 100% { opacity: .15; }
   50%      { opacity: .9; }
 }
 
-/* ===== Tiga kartu keahlian ===== */
+/* Skill category cards */
 
 .sk-cards {
   display: grid;
@@ -236,7 +248,6 @@
   gap: 1rem;
 }
 
-/* di layar lebar, tinggi header ketiga kartu disamakan supaya bar sejajar */
 @media (min-width: 1101px) {
   .sc-head { min-height: 6.1rem; }
 }
@@ -263,7 +274,6 @@
   stroke-linejoin: round;
 }
 
-/* cincin yang membesar dan memudar di sekeliling ikon */
 .sc-icon::after {
   content: "";
   position: absolute;
@@ -274,18 +284,32 @@
 }
 
 @keyframes skRing {
-  from { transform: scale(1);   opacity: .7; }
+  from { transform: scale(1); opacity: .7; }
   to   { transform: scale(1.7); opacity: 0; }
 }
 
-.sc-blue .sc-icon svg { animation: skSpin 14s linear infinite; }
+.sc-blue .sc-icon svg {
+  animation: skSpin 14s linear infinite;
+}
 
-@keyframes skSpin { to { transform: rotate(360deg); } }
+@keyframes skSpin {
+  to { transform: rotate(360deg); }
+}
 
-.sc-head h3 { font-size: 1.3rem; font-weight: 700; line-height: 1.2; }
-.sc-head p  { margin: .25rem 0 0; color: var(--muted); font-size: .95rem; line-height: 1.4; }
+.sc-head h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
 
-/* ----- Baris keahlian + bar ----- */
+.sc-head p {
+  margin: .25rem 0 0;
+  color: var(--muted);
+  font-size: .95rem;
+  line-height: 1.4;
+}
+
+/* Skill progress bars */
 
 .sc-list {
   display: grid;
@@ -302,7 +326,9 @@
   gap: .9rem;
 }
 
-.sr-name { font-size: 1rem; }
+.sr-name {
+  font-size: 1rem;
+}
 
 .sr-bar {
   position: relative;
@@ -328,7 +354,6 @@
   transition: width 1.3s cubic-bezier(.2, .75, .2, 1) calc(var(--i, 0) * 130ms + 250ms);
 }
 
-/* kilau yang menyapu bar terus-menerus */
 .sr-fill::after {
   content: "";
   position: absolute;
@@ -353,7 +378,7 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* ===== Panel softskill ===== */
+/* Soft skills panel */
 
 .sk-soft {
   display: grid;
@@ -377,9 +402,15 @@
   height: 4.6rem;
 }
 
-.sk-soft .sc-icon svg { width: 2.2rem; height: 2.2rem; }
+.sk-soft .sc-icon svg {
+  width: 2.2rem;
+  height: 2.2rem;
+}
 
-.sk-soft h3 { font-size: 1.7rem; font-weight: 700; }
+.sk-soft h3 {
+  font-size: 1.7rem;
+  font-weight: 700;
+}
 
 .sk-soft p {
   margin: .5rem 0 0;
@@ -437,10 +468,13 @@
   box-shadow: 0 0 22px rgba(30, 200, 255, .3);
 }
 
-.sk-chip:hover svg { transform: rotate(-10deg) scale(1.15); }
+.sk-chip:hover svg {
+  transform: rotate(-10deg) scale(1.15);
+}
 
-/* chip muncul satu per satu */
-.skills.js-ready .sk-chip { opacity: 0; }
+.skills.js-ready .sk-chip {
+  opacity: 0;
+}
 
 .sk-soft.in .sk-chip {
   opacity: 1;
@@ -453,7 +487,7 @@
   to   { opacity: 1; transform: none; }
 }
 
-/* ===== Garis penutup bawah ===== */
+/* Bottom decorative divider */
 
 .sk-foot {
   display: flex;
@@ -463,7 +497,11 @@
   color: #6f86b3;
 }
 
-.sk-stripes { display: flex; gap: .45rem; flex: none; }
+.sk-stripes {
+  display: flex;
+  gap: .45rem;
+  flex: none;
+}
 
 .sk-stripes span {
   width: 1.1rem;
@@ -494,32 +532,61 @@
   white-space: nowrap;
 }
 
-.sk-motto i { margin: 0 .7em; color: var(--cyan); font-style: normal; }
+.sk-motto i {
+  margin: 0 .7em;
+  color: var(--cyan);
+  font-style: normal;
+}
 
-/* ===== Layar kecil ===== */
+/* Responsive layout */
 
 @media (max-width: 1100px) {
   .sk-soft {
     grid-template-columns: auto minmax(0, 1fr);
   }
-  .sk-chips { grid-column: 1 / -1; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .sk-chips {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 960px) {
-  .sk-hero { grid-template-columns: 1fr; }
-  .sk-art-wrap { max-width: 34rem; margin-inline: auto; }
+  .sk-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .sk-art-wrap {
+    max-width: 34rem;
+    margin-inline: auto;
+  }
 }
 
 @media (max-width: 560px) {
-  .skills { padding-top: 3.5rem; }
-  .sk-chips { grid-template-columns: 1fr; }
-  .skill-row { grid-template-columns: minmax(0, 1fr) 3rem; }
-  .skill-row .sr-bar { grid-column: 1 / -1; grid-row: 2; }
-  .sk-motto { letter-spacing: .18em; font-size: .68rem; }
+  .skills {
+    padding-top: 3.5rem;
+  }
+
+  .sk-chips {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-row {
+    grid-template-columns: minmax(0, 1fr) 3rem;
+  }
+
+  .skill-row .sr-bar {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .sk-motto {
+    letter-spacing: .18em;
+    font-size: .68rem;
+  }
 }
 
-
-/* ===== SKILLS: MODE TERANG ===== */
+/* ===== LIGHT MODE ===== */
 
 :root[data-theme="light"] .skills {
   --text: #0e1a33;
@@ -602,17 +669,27 @@
   stroke: var(--c);
 }
 
-:root[data-theme="light"] .sk-foot { color: #5a6f99; }
+:root[data-theme="light"] .sk-foot {
+  color: #5a6f99;
+}
+
 :root[data-theme="light"] .sk-line {
   background: linear-gradient(90deg, rgba(47, 100, 220, .6), rgba(47, 100, 220, .05));
 }
 
-/* ----- Ilustrasi SVG (layar laptop sengaja tetap gelap) ----- */
+/* Light mode SVG illustration adjustments */
 
-:root[data-theme="light"] .sk-art { filter: none; }
+:root[data-theme="light"] .sk-art {
+  filter: none;
+}
 
-:root[data-theme="light"] #sk-base stop:first-child { stop-color: #a9c0f5; }
-:root[data-theme="light"] #sk-base stop:last-child  { stop-color: #86a5ea; }
+:root[data-theme="light"] #sk-base stop:first-child {
+  stop-color: #a9c0f5;
+}
+
+:root[data-theme="light"] #sk-base stop:last-child {
+  stop-color: #86a5ea;
+}
 
 :root[data-theme="light"] #sk-glass stop,
 :root[data-theme="light"] #a1-glass stop,
@@ -641,7 +718,11 @@
 :root[data-theme="light"] .sk-art [stroke="#9fd0ff"] {
   stroke: #3a6fd8;
 }
-:root[data-theme="light"] .sk-art [stroke="#7cc4ff"] { stroke: #1d7fd0; }
+
+:root[data-theme="light"] .sk-art [stroke="#7cc4ff"] {
+  stroke: #1d7fd0;
+}
+
 :root[data-theme="light"] .sk-art [stroke="#e4ccff"],
 :root[data-theme="light"] .sk-art [stroke="#d6bcff"],
 :root[data-theme="light"] .sk-art [stroke="#b79bff"] {
@@ -657,8 +738,18 @@
   fill: #4a7be0;
 }
 
-:root[data-theme="light"] .sk-art text[fill="#bcd9ff"] { fill: #1d4fb0; }
-:root[data-theme="light"] .sk-art text[fill="#aef5de"] { fill: #0f7a62; }
+:root[data-theme="light"] .sk-art text[fill="#bcd9ff"] {
+  fill: #1d4fb0;
+}
 
-:root[data-theme="light"] #a1-metal stop:first-child { stop-color: #e8f0ff; }
-:root[data-theme="light"] #a1-metal stop:last-child  { stop-color: #7f9fe0; }
+:root[data-theme="light"] .sk-art text[fill="#aef5de"] {
+  fill: #0f7a62;
+}
+
+:root[data-theme="light"] #a1-metal stop:first-child {
+  stop-color: #e8f0ff;
+}
+
+:root[data-theme="light"] #a1-metal stop:last-child {
+  stop-color: #7f9fe0;
+}

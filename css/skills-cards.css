@@ -1,4 +1,5 @@
-/* ===== KARTU KEAHLIAN BERGAMBAR (tanpa bar persen) ===== */
+
+/* Skill Cards */
 
 .sk-card .sc-icon { border-radius: 16px; }
 .sk-card .sc-icon::after { border-radius: 16px; }
@@ -50,6 +51,8 @@
   animation-delay: calc(var(--i, 0) * 90ms + 300ms);
 }
 
+/* Card Illustration */
+
 .sk-card-art { min-width: 0; }
 
 .sk-card-art .sk-art {
@@ -71,6 +74,8 @@
   0%, 100% { transform: rotate(-9deg); }
   50%      { transform: rotate(11deg); }
 }
+
+/* Illustration Animations */
 
 .sk-art .gear {
   transform-box: fill-box;
@@ -111,6 +116,8 @@
   0%   { opacity: 1; }
   50%  { opacity: 0; }
 }
+
+/* Responsive Layout */
 
 @media (max-width: 480px) {
   .sk-body { grid-template-columns: 1fr; }

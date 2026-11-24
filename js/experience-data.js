@@ -1,13 +1,14 @@
+
 /* ===== DATA EXPERIENCE =====
-   Edit file ini saja untuk mengganti isi halaman Experience.
+   Edit this file only to update the Experience page content.
 
-   - Teks TANPA tanda "[Placeholder]" diambil dari index.html lama kamu.
-   - Teks dengan "[Placeholder]" HARUS kamu ganti sebelum publish.
-   - Field kosong ("" atau []) otomatis disembunyikan.
+   - Text WITHOUT "[Placeholder]" is taken from your previous index.html.
+   - Text containing "[Placeholder]" MUST be replaced before publishing.
+   - Empty fields ("" or []) are automatically hidden.
 
-   Logo   : isi `logo: "assets/exp/nama.png"`. Kalau kosong, tampil huruf dari `mark`.
-   Foto   : ganti ph("Label", 210) dengan { src: "assets/exp/foto1.jpg", caption: "Keterangan" }.
-            ph() hanya pembuat gambar sementara. */
+   Logo  : Set `logo: "assets/exp/name.png"`. If empty, the initial from `mark` is displayed.
+   Photos: Replace ph("Label", 210) with { src: "assets/exp/photo1.jpg", caption: "Description" }.
+           ph() is only a temporary image generator. */
 
 (function () {
   function ph(label, hue) {
@@ -116,7 +117,7 @@
           "Explained simulation results and helped students connect theoretical control concepts with practical engineering applications.",
           "Supported MATLAB-based experiments, troubleshooting, and interpretation of control system simulation results."
         ],
-        tech: ["MATLAB", "Simulink"], /* dari bagian About; tambah Simulink dll. jika memang dipakai */
+        tech: ["MATLAB", "Simulink"], /* Add Simulink or other tools only if they were actually used */
         results: [],
         showcase: [
         { src: "assets/exp/kendali1.jpeg", caption: "" },

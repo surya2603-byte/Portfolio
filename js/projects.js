@@ -1,7 +1,8 @@
-/* ===== PROJECTS: carousel 3D, cursor tilt, halaman detail =====
-   Data ada di js/projects-data.js. File ini hanya menampilkan.
-   Alamat: #projects = daftar, #projects/<id> = detail (tombol Back browser berfungsi).
-   Galeri mendukung foto dan video (.mp4 / .webm). */
+
+/* ===== PROJECTS: 3D carousel, cursor tilt, and detail pages =====
+   Project data is stored in js/projects-data.js. This file handles rendering only.
+   Routes: #projects = project list, #projects/<id> = project details (browser Back button supported).
+   The gallery supports both images and videos (.mp4 / .webm). */
 
 (function () {
   "use strict";
@@ -17,7 +18,7 @@
   var n = data.length, cur = 0, mode = "list", openId = null;
   var cards = [], countEl = null, lb = null, lbs = null, gal = null;
 
-  /* ---------- util ---------- */
+  /* ---------- utilities ---------- */
 
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
@@ -57,15 +58,15 @@
       ? '<img src="' + esc(src) + '" alt="' + esc(alt) + '"' + (eager ? "" : ' loading="lazy"') + ' decoding="async" draggable="false">'
       : ph();
   }
-  // latar buram dari foto itu sendiri, mengisi sisi kosong saat foto ditampilkan utuh
-  // jalur dibuat absolut: url() di dalam variabel CSS dibaca relatif ke folder css/, bukan ke halaman
+  // Use a blurred version of the image itself to fill empty space when displaying the full image
+  // Convert the path to an absolute URL: url() in CSS variables resolves relative to css/, not the page
   function bgUrl(src) {
     var u = String(src);
-    try { u = new URL(u, document.baseURI).href; } catch (e) { /* pakai apa adanya */ }
+    try { u = new URL(u, document.baseURI).href; } catch (e) { /* use the original path */ }
     return 'url("' + u.replace(/["\\\s]/g, encodeURIComponent) + '")';
   }
   function bgStyle(src) { return src ? ' style="--ph:' + esc(bgUrl(src)) + '"' : ""; }
-  // foto yang gagal dimuat diganti placeholder
+  // Replace images that fail to load with a placeholder
   host.addEventListener("error", function (e) {
     var t = e.target;
     if (t && t.tagName === "IMG") {
@@ -87,19 +88,19 @@
     return g;
   }
 
-  /* ---------- video di galeri ---------- */
+  /* ---------- gallery video support ---------- */
 
-  // item galeri dianggap video bila type: "video" atau ekstensinya video
+  // Treat gallery items as videos when type is "video" or the file extension indicates a video
   function isVid(x) {
     return !!x && (x.type === "video" || /\.(mp4|webm|ogv|m4v|mov)([?#]|$)/i.test(x.src || ""));
   }
-  // tampilan utama: foto atau video (video memakai kontrol bawaan browser)
+  // Main media display: image or video (videos use the browser's built-in controls)
   function media(x, alt, eager) {
     return isVid(x)
       ? '<video src="' + esc(x.src) + '"' + (x.poster ? ' poster="' + esc(x.poster) + '"' : "") + ' controls playsinline preload="metadata"></video>'
       : pic(x && x.src, alt, eager);
   }
-  // thumbnail: foto, atau video dengan tanda play (memakai poster bila ada)
+  // Thumbnail display: image or video with a play icon (uses the poster when available)
   function thumbPic(x, alt) {
     if (!isVid(x)) return pic(x.src, alt);
     return (x.poster
@@ -108,7 +109,7 @@
       '<span class="prj-play" aria-hidden="true">' + I.play + "</span>";
   }
 
-  /* ---------- latar: cahaya + partikel halus ---------- */
+  /* ---------- background: soft lighting and particles ---------- */
 
   var bg = document.createElement("div");
   bg.className = "prj-bg";
@@ -121,15 +122,15 @@
   bg.innerHTML = bgh;
   root.insertBefore(bg, root.firstChild);
 
-  /* ---------- tampilan 1: showcase (flow 3D, mengikuti cursor) ---------- */
+  /* ---------- view 1: project showcase (3D flow, cursor interaction) ---------- */
 
   var list = data;
   var pos = 0, xs = 0, cw = 340, running = false;
   var stageEl = null, trackEl = null;
   var gx = 0, gy = 0, tgx = 0, tgy = 0;
-  var fx = fine && !reduce; // tilt global hanya untuk mouse
+  var fx = fine && !reduce; // Global tilt is enabled for mouse input only
 
-  // kartu hanya menampilkan satu penjelasan ringkas (cardSummary); judul lengkap ada di halaman detail
+  // Cards display only a short summary (cardSummary); the full project title appears on the detail page
   function cardHTML(p, i) {
     return '<a class="prj-card" href="#projects/' + encodeURIComponent(p.id) + '" data-i="' + i + '" style="--n:' + i + '">' +
       '<div class="prj-float"><div class="prj-tilt">' +
@@ -162,7 +163,7 @@
   function stepPx() { return cw + Math.max(18, cw * 0.06); }
   function measure() { if (cards[0]) cw = cards[0].offsetWidth || cw; }
 
-  // posisi tiap kartu dihitung dari jaraknya (d) ke tengah: makin jauh, makin miring, kecil, dan dalam
+  // Calculate each card's position based on its distance (d) from the center: farther cards become more tilted, smaller, and deeper
   function layout() {
     var half = n / 2, step = stepPx();
     cards.forEach(function (c, i) {
@@ -231,7 +232,7 @@
     host.querySelector("[data-next]").addEventListener("click", function () { go(cur + 1); });
     mountCards();
 
-    // klik: kartu samping dibawa ke tengah, kartu tengah membuka detail
+    // Clicking a side card moves it to the center; clicking the center card opens its detail page
     var down = null, dragged = false, swiped = false;
     stageEl.addEventListener("click", function (e) {
       var c = e.target.closest(".prj-card");
@@ -244,7 +245,7 @@
     });
     stageEl.addEventListener("dragstart", function (e) { e.preventDefault(); });
 
-    // geser dengan mouse atau sentuh
+    // Support mouse dragging and touch swiping
     function end() {
       if (down && dragged) {
         swiped = true;
@@ -262,7 +263,7 @@
     stageEl.addEventListener("pointerup", end);
     stageEl.addEventListener("pointercancel", end);
 
-    // scroll horizontal (trackpad)
+    // Horizontal scrolling (trackpad)
     var wl = 0;
     stageEl.addEventListener("wheel", function (e) {
       if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
@@ -273,7 +274,7 @@
       go(cur + (e.deltaX > 0 ? 1 : -1));
     }, { passive: false });
 
-    // cursor kustom, tilt global, dan tilt per kartu
+    // Custom cursor, global tilt, and individual card tilt
     var raf = 0, pend = null;
     function tick() {
       raf = 0;
@@ -301,7 +302,7 @@
         if (!dragged && Math.abs(dx) > 7) {
           dragged = true;
           stageEl.classList.add("is-drag");
-          try { stageEl.setPointerCapture(down.id); } catch (err) { /* abaikan */ }
+          try { stageEl.setPointerCapture(down.id); } catch (err) { /* ignore */ }
         }
         if (dragged) { pos = down.p - dx / stepPx(); kick(); }
       }
@@ -331,7 +332,7 @@
     if (mode === "list" && stageEl && stageEl.isConnected) { measure(); layout(); }
   });
 
-  /* ---------- tampilan 2: detail ---------- */
+  /* ---------- view 2: project details ---------- */
 
   function detailHTML(p) {
     var g = photos(p);
@@ -408,7 +409,7 @@
     if (gp) gp.addEventListener("click", function () { setMain(idx - 1); });
     if (gn) gn.addEventListener("click", function () { setMain(idx + 1); });
     if (fu) fu.addEventListener("click", function () { openLB(g, idx, fu); });
-    // foto: klik untuk memperbesar. video: klik dipakai untuk play/pause, perbesar lewat tombol layar penuh
+    // Images open in the lightbox when clicked. Videos use clicks for play/pause and the fullscreen button to enlarge
     main.addEventListener("click", function () { if (g.length && !isVid(g[idx])) openLB(g, idx, fu); });
     host.querySelector("[data-back]").addEventListener("click", function () { location.hash = "projects"; });
   }
@@ -472,7 +473,7 @@
     if (lbs && lbs.opener && document.contains(lbs.opener)) lbs.opener.focus();
   }
 
-  /* ---------- keyboard ---------- */
+  /* ---------- keyboard navigation ---------- */
 
   function inView() {
     var r = root.getBoundingClientRect();
@@ -497,7 +498,7 @@
     }
   });
 
-  /* ---------- scroll reveal + hemat performa ---------- */
+  /* ---------- scroll reveal and performance optimization ---------- */
 
   var io = null;
   var canIO = "IntersectionObserver" in window;
@@ -523,7 +524,7 @@
     }).observe(root);
   }
 
-  /* ---------- routing + transisi halaman ---------- */
+  /* ---------- routing and page transitions ---------- */
 
   function route(first) {
     var m = /^#projects\/(.+)$/.exec(location.hash);

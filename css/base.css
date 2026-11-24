@@ -1,5 +1,3 @@
-/* ===== BASE: reset dan gaya dasar ===== */
-
 *,
 *::before,
 *::after {
@@ -76,7 +74,6 @@ button:focus-visible {
 
 .skip-link:focus { top: 1rem; }
 
-/* Hormati pengguna yang mematikan animasi */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

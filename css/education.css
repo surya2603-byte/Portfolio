@@ -1,7 +1,6 @@
-/* ===== EDUCATION: kaca gelap, glow biru, animasi halus =====
-   Memakai variabel tema dari variables.css, jadi mode gelap
-   dan terang otomatis ikut. Animasi masuk diatur js/education.js */
+/* education section, theme colors come from variables.css */
 
+/* registered so the conic border can actually animate */
 @property --edu-a {
   syntax: "<angle>";
   initial-value: 0deg;
@@ -20,8 +19,7 @@
   z-index: 1;
 }
 
-/* ----- Latar: cahaya, partikel, gelombang ----- */
-
+/* background */
 .edu-bg {
   position: absolute;
   inset: 0;
@@ -75,6 +73,7 @@
   50%      { opacity: .85; transform: translateY(-18px); }
 }
 
+/* svg is 200% wide, shifting by -50% loops seamlessly */
 .edu-waves {
   position: absolute;
   left: 0;
@@ -89,8 +88,7 @@
   to { transform: translateX(-50%); }
 }
 
-/* ----- Topi toga melayang ----- */
-
+/* floating grad cap */
 .edu-cap {
   position: absolute;
   top: -.5rem;
@@ -107,8 +105,7 @@
   50%      { transform: translateY(-14px) rotate(3deg); }
 }
 
-/* ----- Judul ----- */
-
+/* heading */
 .edu-pill {
   display: inline-flex;
   align-items: center;
@@ -161,8 +158,7 @@
   to   { transform: scaleX(1); opacity: 1; }
 }
 
-/* ----- Susunan dua panel ----- */
-
+/* two panel layout */
 .edu-card {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
@@ -189,6 +185,7 @@
   transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
 }
 
+/* keep content above the ::before / ::after layers */
 .edu-panel > * { position: relative; z-index: 1; }
 
 .edu-panel:hover {
@@ -200,7 +197,7 @@
     0 0 46px color-mix(in srgb, var(--cyan) 30%, transparent);
 }
 
-/* cahaya biru yang berjalan pelan di sekeliling kartu kiri */
+/* light that slowly circles the left card border */
 .edu-left::before {
   content: "";
   position: absolute;
@@ -222,7 +219,7 @@
   to { --edu-a: 360deg; }
 }
 
-/* cahaya lembut di pojok kanan bawah kartu kiri */
+/* soft glow, bottom right */
 .edu-left::after {
   content: "";
   position: absolute;
@@ -233,8 +230,7 @@
   pointer-events: none;
 }
 
-/* ----- Isi kartu kiri ----- */
-
+/* left card */
 .edu-logo {
   display: block;
   width: 100px;
@@ -312,8 +308,7 @@
 
 .edu-year svg { margin-top: 0; }
 
-/* ----- Isi kartu kanan ----- */
-
+/* right card */
 .edu-heading {
   display: flex;
   align-items: center;
@@ -350,7 +345,7 @@
   list-style: none;
 }
 
-/* garis tipis yang menghubungkan ikon */
+/* thin line connecting the icons */
 .edu-list::before {
   content: "";
   position: absolute;
@@ -440,11 +435,10 @@
   box-shadow: 0 0 18px color-mix(in srgb, var(--cyan) 40%, transparent);
 }
 
-/* dipakai juga oleh section Courses */
+/* also used by the courses section, don't remove */
 .cred-list { margin-top: 1.5rem; }
 
-/* ----- Animasi masuk (diatur js/education.js) ----- */
-
+/* reveal on scroll, .in is toggled from js/education.js */
 .edu.js-ready [data-reveal],
 .edu.js-ready .edu-item {
   opacity: 0;
@@ -456,6 +450,7 @@
   animation-delay: calc(var(--d, 0) * 140ms);
 }
 
+/* list items start after the panel has appeared */
 .edu [data-reveal].in .edu-item {
   opacity: 1;
   animation: eduRise .6s cubic-bezier(.2, .8, .2, 1) backwards;
@@ -479,7 +474,7 @@
   to   { opacity: 1; transform: none; }
 }
 
-/* animasi latar berhenti saat section tidak terlihat (hemat tenaga) */
+/* pause animations when the section is offscreen */
 .edu.is-off .edu-glow,
 .edu.is-off .edu-dot,
 .edu.is-off .edu-waves,
@@ -489,8 +484,7 @@
   animation-play-state: paused;
 }
 
-/* ----- Mode terang ----- */
-
+/* light mode tweaks */
 :root[data-theme="light"] .edu-glow { opacity: .55; }
 
 :root[data-theme="light"] .edu-dot {
@@ -520,8 +514,7 @@
   background: color-mix(in srgb, var(--blue) 10%, #fff);
 }
 
-/* ----- Layar kecil ----- */
-
+/* responsive */
 @media (max-width: 900px) {
   .edu-card { grid-template-columns: 1fr; gap: 1.4rem; }
 }
@@ -534,8 +527,7 @@
   .edu-tags li { font-size: .82rem; }
 }
 
-/* ----- Pengguna yang mengurangi animasi ----- */
-
+/* no motion: kill animations and make sure nothing stays hidden */
 @media (prefers-reduced-motion: reduce) {
   .edu *,
   .edu *::before,

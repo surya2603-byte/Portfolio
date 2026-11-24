@@ -1,6 +1,7 @@
-/* ===== EDUCATION: animasi saat di-scroll =====
-   - elemen bertanda data-reveal muncul saat masuk layar
-   - animasi latar berhenti saat section di luar layar */
+
+/* ===== EDUCATION: scroll reveal animation
+   - Elements with data-reveal appear when they enter the viewport
+   - Background animations pause when the section is outside the viewport */
 
 (function () {
   var root = document.getElementById("education");
@@ -9,7 +10,7 @@
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var targets = Array.prototype.slice.call(root.querySelectorAll("[data-reveal]"));
 
-  // Tanpa animasi: tampilkan semuanya langsung
+  // Disable animations and display all elements immediately
   if (reduce || !("IntersectionObserver" in window)) {
     targets.forEach(function (el) { el.classList.add("in"); });
     return;

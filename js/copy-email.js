@@ -1,5 +1,6 @@
-/* ===== SALIN EMAIL =====
-   Tombol dengan atribut data-copy-email akan menyalin alamat email. */
+
+/* ===== COPY EMAIL =====
+   Buttons with the data-copy-email attribute will copy the email address. */
 
 (function () {
   var EMAIL = "suryawardana2603@gmail.com";

@@ -1,14 +1,15 @@
-/* ===== HERO FX: menghidupkan gambar globe =====
-   Gambar globe + dudukan (assets/hero-globe.png) dipakai apa adanya.
-   Script ini menambahkan gerakan di atasnya:
-   - ikon (.orbit-icon) mengorbit mengelilingi globe, besar di depan, kecil di belakang
-   - riak cahaya memancar dari dudukan
-   - partikel naik dari dudukan ke globe
-   - denyut cahaya di garis sinyal (seperti detak jantung)
-   - kilau yang menyapu permukaan globe
-   - komet cahaya yang berjalan di sepanjang cincin orbit
-   - bintang kecil yang berkedip
-   Semua koordinat memakai ukuran gambar asli 799 x 716, lalu diskalakan. */
+
+/* ===== HERO FX: animating the globe illustration =====
+   The globe and its base (assets/hero-globe.png) are used as provided.
+   This script adds animated effects on top:
+   - icons (.orbit-icon) orbit around the globe, appearing larger in front and smaller behind
+   - light ripples radiate from the base
+   - particles rise from the base toward the globe
+   - the signal line pulses like a heartbeat
+   - a shimmer sweeps across the globe's surface
+   - glowing comets travel along the orbital rings
+   - small stars twinkle in the background
+   All coordinates use the original image dimensions of 799 x 716, then scale to fit. */
 
 (function () {
   var wrap = document.querySelector(".hero-visual");
@@ -18,17 +19,17 @@
   var ctx = canvas.getContext("2d");
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // ===== PENGATURAN (ubah di sini) =====
-  var DW = 799, DH = 716;                       // ukuran gambar globe asli
-  var GLOBE = { x: 428, y: 302, r: 176 };       // posisi dan jari-jari globe di gambar
-  var PLATFORM = { x: 425, y: 582 };            // pusat dudukan
-  var HEART = { x: 418, y: 292 };               // pusat garis sinyal di dalam globe
-  var RINGS = [                                 // jalur orbit ikon (cocok dengan cincin di gambar)
+  // ===== SETTINGS (edit here) =====
+  var DW = 799, DH = 716;                       // original globe image dimensions
+  var GLOBE = { x: 428, y: 302, r: 176 };       // globe position and radius in the image
+  var PLATFORM = { x: 425, y: 582 };            // center of the base
+  var HEART = { x: 418, y: 292 };               // center of the signal line inside the globe
+  var RINGS = [                                 // icon orbit paths (aligned with the rings in the image)
     { cx: 392, cy: 325, a: 385, b: 58, rot: -0.2548, speed:  0.00026 },
     { cx: 418, cy: 138, a: 355, b: 52, rot: -0.1745, speed: -0.00020 }
   ];
 
-  // ----- Ikon -----
+  // ----- Icons -----
   var icons = Array.prototype.map.call(wrap.querySelectorAll(".orbit-icon"), function (el) {
     return {
       el: el,
@@ -37,7 +38,7 @@
     };
   });
 
-  // ----- Bintang dan partikel (acak tetap supaya tidak berubah tiap muat ulang) -----
+  // ----- Stars and particles (fixed random values to keep them consistent across page reloads) -----
   var seed = 7;
   function rnd() { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
 
@@ -51,7 +52,7 @@
     parts.push({ dx: (rnd() - 0.5) * 240, t: rnd(), sp: 0.00008 + rnd() * 0.00009, r: 0.8 + rnd() * 1.4 });
   }
 
-  var k = 1;      // skala gambar asli ke layar
+  var k = 1;      // scale factor from the original image to the screen
   var W = 0, H = 0;
 
   function resize() {
@@ -71,23 +72,23 @@
     return { x: ring.cx + lx * c - ly * sn, y: ring.cy + lx * sn + ly * c, depth: Math.sin(a) };
   }
 
-  // ----- Ikon mengorbit -----
+  // ----- Orbiting icons -----
   function placeIcons(time) {
     for (var i = 0; i < icons.length; i++) {
       var ic = icons[i];
       var ring = RINGS[ic.ring];
       var pt = ringPoint(ring, ic.phase + time * ring.speed);
-      var d = (pt.depth + 1) / 2;                 // 0 (belakang) .. 1 (depan)
+      var d = (pt.depth + 1) / 2;                 // 0 (back) .. 1 (front)
       var scale = 0.84 + 0.30 * d;
 
       ic.el.style.transform =
         "translate(" + (pt.x * k).toFixed(1) + "px," + (pt.y * k).toFixed(1) + "px) translate(-50%,-50%) scale(" + scale.toFixed(3) + ")";
       ic.el.style.opacity = (0.55 + 0.45 * d).toFixed(2);
-      ic.el.style.zIndex = pt.depth > 0 ? 4 : 1;  // globe ada di z-index 2
+      ic.el.style.zIndex = pt.depth > 0 ? 4 : 1;  // globe uses z-index 2
     }
   }
 
-  // ----- Efek di atas gambar -----
+  // ----- Effects rendered over the image -----
   function drawStars(time) {
     for (var i = 0; i < stars.length; i++) {
       var st = stars[i];
@@ -113,7 +114,7 @@
       ctx.stroke();
     }
 
-    // cahaya pusat dudukan berdenyut pelan
+    // The base's central glow pulses gently
     var glow = 0.5 + 0.5 * Math.sin(time * 0.0022);
     var g = ctx.createRadialGradient(PLATFORM.x, PLATFORM.y, 0, PLATFORM.x, PLATFORM.y, 120);
     g.addColorStop(0, "rgba(90,210,255," + (0.12 + 0.16 * glow).toFixed(3) + ")");
@@ -175,7 +176,7 @@
         var a1 = head - dir * (i + 1) * 0.032;
         var p0 = ringPoint(ring, a0);
         var p1 = ringPoint(ring, a1);
-        var vis = p0.depth > 0 ? 1 : 0.22;     // bagian di belakang globe lebih redup
+        var vis = p0.depth > 0 ? 1 : 0.22;     // dim the parts behind the globe
         var alpha = (1 - i / steps) * 0.9 * vis;
         ctx.strokeStyle = "rgba(150,230,255," + alpha.toFixed(3) + ")";
         ctx.lineWidth = 0.8 + 2.2 * (1 - i / steps);
@@ -210,7 +211,7 @@
     placeIcons(time);
   }
 
-  // ----- Loop -----
+  // ----- Animation loop -----
   var running = false;
   var visible = true;
 
@@ -237,7 +238,7 @@
     frame(0);
   });
 
-  // berhenti menggambar saat globe tidak terlihat (hemat baterai)
+  // Stop rendering when the globe is out of view to save battery
   if ("IntersectionObserver" in window) {
     new IntersectionObserver(function (entries) {
       visible = entries[0].isIntersecting;

@@ -1,6 +1,5 @@
-/* ===== EXPERIENCE: carousel 3D, timeline, panel detail =====
-   Memakai variabel dari variables.css (gelap + terang).
-   Logika ada di js/experience.js, data di js/experience-data.js */
+/* experience section: 3d carousel, timeline, detail modal
+   theme vars from variables.css, logic in js/experience.js, data in js/experience-data.js */
 
 .exp {
   position: relative;
@@ -11,8 +10,7 @@
 
 .exp-wrap { position: relative; z-index: 1; }
 
-/* ----- Latar dekoratif ----- */
-
+/* background decoration */
 .exp-bg {
   position: absolute;
   inset: 0;
@@ -72,6 +70,7 @@
   50%      { opacity: 1;  transform: scale(1.1) rotate(45deg); }
 }
 
+/* cube is 6 <i> faces, size set per cube with --s */
 .exp-cube {
   position: absolute;
   width: var(--s); height: var(--s);
@@ -102,16 +101,17 @@
   to   { transform: rotateX(20deg) rotateY(360deg); }
 }
 
+/* uses the individual translate property so it doesn't fight expSpin */
 @keyframes expBob {
   from { translate: 0 -10px; }
   to   { translate: 0 14px; }
 }
 
+/* pause while offscreen */
 .exp.is-off .exp-glow, .exp.is-off .exp-ring, .exp.is-off .exp-star, .exp.is-off .exp-cube,
 .exp.is-off .exp-card.is-active { animation-play-state: paused; }
 
-/* ----- Judul dan tab ----- */
-
+/* heading and tabs */
 .exp-head { max-width: 40rem; }
 
 .exp-eyebrow {
@@ -179,6 +179,7 @@
 
 .exp-tab[aria-selected="true"] svg { stroke: var(--cyan); }
 
+/* sliding highlight, left/width are set from js */
 .exp-tab-glow {
   position: absolute;
   top: .3rem; bottom: .3rem; left: 0;
@@ -190,8 +191,7 @@
   transition: transform .5s cubic-bezier(.3, .8, .2, 1), width .5s cubic-bezier(.3, .8, .2, 1);
 }
 
-/* ----- Carousel 3D ----- */
-
+/* 3d carousel, card transforms are set from js */
 .exp-stage {
   position: relative;
   height: clamp(25rem, 46vw, 29rem);
@@ -232,8 +232,10 @@
   transition: transform .7s cubic-bezier(.2, .8, .2, 1), opacity .5s ease, border-color .4s ease, box-shadow .4s ease;
 }
 
+/* shorter transition while dragging so it follows the pointer */
 .exp-stage.dragging .exp-card { transition-duration: .3s; }
 
+/* hover spotlight, --mx / --my follow the mouse (js) */
 .exp-card::before {
   content: "";
   position: absolute; inset: 0;
@@ -276,6 +278,7 @@
 .exp-card h3 { font-size: 1.28rem; line-height: 1.2; }
 .exp-meta { margin: .25rem 0 0; color: var(--muted); font-size: .92rem; line-height: 1.4; }
 
+/* clamp description to 3 lines */
 .exp-short {
   margin: 0;
   color: var(--text);
@@ -304,10 +307,12 @@
 }
 
 .exp-more svg { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s ease; }
+/* only the centered card shows the button */
 .exp-card:not(.is-active) .exp-more { opacity: 0; }
 .exp-card.is-active:hover .exp-more { background: color-mix(in srgb, var(--blue) 30%, transparent); box-shadow: var(--glow); }
 .exp-card.is-active:hover .exp-more svg { transform: translateX(3px); }
 
+/* logo falls back to initials on the gradient when there's no image */
 .exp-logo {
   flex: none;
   display: grid;
@@ -347,11 +352,11 @@
 .exp-nav:hover:not(:disabled) { border-color: var(--cyan); box-shadow: var(--glow); transform: scale(1.08); }
 .exp-nav:disabled { opacity: .3; cursor: default; }
 
-/* ----- Timeline ----- */
-
+/* timeline, --n = number of items, --p = progress (both set in js) */
 .exp-timeline { position: relative; margin-top: 1.2rem; transition: opacity .28s ease; }
 .exp-timeline.is-switching { opacity: 0; }
 
+/* line runs from the middle of the first node to the middle of the last */
 .exp-tl-line {
   position: absolute;
   top: .6rem;
@@ -410,8 +415,7 @@
 .exp-tl-btn.is-on { color: var(--text); font-weight: 600; }
 .exp-tl-btn.is-on .exp-node { transform: scale(1.3); border-color: #fff; background: var(--cyan); box-shadow: 0 0 0 4px color-mix(in srgb, var(--cyan) 25%, transparent), 0 0 18px var(--cyan); }
 
-/* ----- Animasi masuk ----- */
-
+/* reveal on scroll */
 .exp.js-ready [data-reveal] { opacity: 0; }
 .exp [data-reveal].in { opacity: 1; animation: expUp .85s cubic-bezier(.2, .7, .2, 1) backwards; animation-delay: calc(var(--d, 0) * 140ms); }
 
@@ -420,8 +424,9 @@
   to   { opacity: 1; transform: none; }
 }
 
-/* ===== PANEL DETAIL ===== */
+/* detail modal */
 
+/* stop the page from scrolling behind the modal */
 html.exp-lock { overflow: hidden; }
 
 .exp-modal {
@@ -446,6 +451,7 @@ html.exp-lock { overflow: hidden; }
 
 .exp-modal.is-open .exp-backdrop { opacity: 1; }
 
+/* dvh line overrides vh where supported (mobile browser bars) */
 .exp-panel {
   position: relative;
   display: flex;
@@ -487,7 +493,7 @@ html.exp-lock { overflow: hidden; }
 .exp-close:hover { transform: rotate(90deg); border-color: var(--cyan); box-shadow: var(--glow); }
 .exp-close svg, .exp-lb-close svg { width: 1.2rem; height: 1.2rem; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; }
 
-/* isi muncul bertahap */
+/* content fades in one block at a time, --i is the index */
 .exp-s { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .6s cubic-bezier(.2, .8, .2, 1); transition-delay: calc(var(--i, 0) * 70ms + 180ms); }
 .exp-modal.is-open .exp-s { opacity: 1; transform: none; }
 
@@ -524,11 +530,11 @@ html.exp-lock { overflow: hidden; }
 
 .exp-facts svg { width: 1.05rem; height: 1.05rem; fill: none; stroke: var(--cyan); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
-/* ----- Organizations: dua kolom, galeri di kiri ----- */
-
+/* organization layout: gallery on the left, info on the right */
 .exp-d.org { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 2rem; padding: 2rem; }
 .exp-d.org.no-media { grid-template-columns: 1fr; }
 .exp-d.org .exp-d-media { position: sticky; top: 0; align-self: start; }
+/* leave room for the close button */
 .exp-d.org .exp-d-info { padding-right: 2.6rem; }
 
 .exp-checks, .exp-stars { display: grid; gap: .6rem; margin: 0; padding: 0; list-style: none; }
@@ -560,8 +566,7 @@ html.exp-lock { overflow: hidden; }
 
 .exp-skillchips li:hover { transform: translateY(-2px); border-color: var(--cyan); box-shadow: 0 0 16px color-mix(in srgb, var(--cyan) 40%, transparent); }
 
-/* ----- Work: banner atas + browser mockup ----- */
-
+/* work layout: banner on top, then two columns */
 .exp-w-head {
   display: flex;
   flex-wrap: wrap;
@@ -582,6 +587,7 @@ html.exp-lock { overflow: hidden; }
 .exp-w-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 2rem; padding: 0 2rem 2rem; }
 .exp-w-left .exp-sec:first-child, .exp-w-right .exp-sec:first-child { margin-top: 1.6rem; }
 
+/* numbered steps via css counter */
 .exp-steps { display: grid; gap: .9rem; margin: 0; padding: 0; list-style: none; counter-reset: step; }
 .exp-steps li { position: relative; padding-left: 2.8rem; line-height: 1.55; counter-increment: step; }
 
@@ -597,8 +603,10 @@ html.exp-lock { overflow: hidden; }
   font: 700 .85rem var(--font-head);
 }
 
+/* connector between step numbers */
 .exp-steps li:not(:last-child)::after { content: ""; position: absolute; left: 1rem; top: 2.1rem; bottom: -.8rem; width: 1px; background: var(--line); }
 
+/* --c is the brand color of each tech, set inline */
 .exp-tech { display: flex; flex-wrap: wrap; gap: .6rem; margin: 0; padding: 0; list-style: none; }
 
 .exp-tech li {
@@ -648,12 +656,12 @@ html.exp-lock { overflow: hidden; }
   font-size: .78rem; font-weight: 800;
 }
 
-/* ----- Galeri ----- */
-
+/* gallery */
 .exp-frame { overflow: hidden; border: 1px solid var(--line-strong); border-radius: 20px; background: var(--panel-solid); box-shadow: 0 0 30px color-mix(in srgb, var(--blue) 22%, transparent); }
 
 .exp-frame.browser { border-radius: 14px; }
 
+/* fake browser bar, the three dots are the window buttons */
 .exp-bar { display: flex; align-items: center; gap: .4rem; padding: .6rem .8rem; background: color-mix(in srgb, var(--blue) 16%, var(--panel-solid)); border-bottom: 1px solid var(--line); }
 .exp-bar i { width: .6rem; height: .6rem; border-radius: 50%; background: var(--line-strong); }
 .exp-bar i:first-child { background: #ff6b6b; }
@@ -679,6 +687,7 @@ html.exp-lock { overflow: hidden; }
   font-size: .88rem;
 }
 
+/* these sit on top of photos so colors are fixed, not themed */
 .exp-gnav {
   position: absolute;
   top: 50%;
@@ -719,6 +728,7 @@ html.exp-lock { overflow: hidden; }
 .exp-zoom:hover { border-color: var(--cyan); box-shadow: var(--glow); }
 .exp-zoom svg { width: 1.1rem; height: 1.1rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
+/* thumbnail strip scrolls sideways, scrollbar hidden */
 .exp-thumbs { position: relative; display: flex; gap: .6rem; margin-top: .8rem; padding: .3rem; overflow-x: auto; scrollbar-width: none; }
 .exp-thumbs::-webkit-scrollbar { display: none; }
 
@@ -739,8 +749,7 @@ html.exp-lock { overflow: hidden; }
 .exp-thumb:hover { opacity: 1; transform: translateY(-2px); }
 .exp-thumb.is-on { opacity: 1; border-color: var(--cyan); box-shadow: 0 0 16px color-mix(in srgb, var(--cyan) 55%, transparent); }
 
-/* ----- Lightbox ----- */
-
+/* lightbox, sits above the modal */
 .exp-lightbox {
   position: fixed; inset: 0;
   z-index: 1100;
@@ -772,8 +781,7 @@ html.exp-lock { overflow: hidden; }
 .exp-lightbox .exp-gnav.prev { left: 1rem; }
 .exp-lightbox .exp-gnav.next { right: 1rem; }
 
-/* ----- Mode terang ----- */
-
+/* light mode */
 :root[data-theme="light"] .exp-glow { opacity: .55; }
 :root[data-theme="light"] .exp-cube { opacity: .55; }
 :root[data-theme="light"] .exp-star { background: var(--blue); filter: drop-shadow(0 0 6px var(--blue)); }
@@ -781,8 +789,7 @@ html.exp-lock { overflow: hidden; }
 :root[data-theme="light"] .exp-backdrop { background: rgba(20, 40, 90, .5); }
 :root[data-theme="light"] .exp-panel { box-shadow: 0 30px 70px rgba(30, 60, 130, .3); }
 
-/* ----- Layar kecil ----- */
-
+/* responsive */
 @media (max-width: 900px) {
   .exp-d.org { grid-template-columns: 1fr; padding: 1.4rem; gap: 1.2rem; }
   .exp-d.org .exp-d-media { position: static; }
@@ -813,8 +820,7 @@ html.exp-lock { overflow: hidden; }
   .exp-cube.c2, .exp-star { display: none; }
 }
 
-/* ----- Kurangi animasi ----- */
-
+/* reduced motion: no animations, and make sure nothing stays hidden */
 @media (prefers-reduced-motion: reduce) {
   .exp *, .exp *::before, .exp *::after,
   .exp-modal *, .exp-lightbox * { animation: none !important; transition: none !important; }

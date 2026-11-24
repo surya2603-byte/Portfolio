@@ -1,7 +1,8 @@
-/* ===== COURSES: animasi masuk layar + pratinjau PDF =====
-   - Pratinjau utama: gambar thumbnail di assets/certificates/thumbs/
-   - Jika thumbnail tidak ada, halaman 1 PDF dirender dengan PDF.js
-   - Jika itu pun gagal, tampil kotak "PDF Certificate" (tombol tetap jalan) */
+
+/* ===== COURSES: scroll reveal animation + PDF preview
+   - Primary preview: thumbnail image from assets/certificates/thumbs/
+   - If the thumbnail is unavailable, render the first PDF page using PDF.js
+   - If that also fails, display a "PDF Certificate" placeholder (button remains functional) */
 
 (function () {
   var root = document.getElementById("courses");
@@ -9,7 +10,7 @@
 
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---------- 1. Reveal saat di-scroll ---------- */
+  /* ---------- 1. Scroll Reveal ---------- */
 
   var targets = Array.prototype.slice.call(root.querySelectorAll("[data-reveal]"));
 
@@ -35,7 +36,7 @@
     }).observe(root);
   }
 
-  /* ---------- 2. Pratinjau PDF (cadangan) ---------- */
+  /* ---------- 2. PDF Preview Fallback ---------- */
 
   var CDN = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/";
   var pdfjsPromise = null;
@@ -100,7 +101,7 @@
     }
 
     img.addEventListener("error", fallback);
-    // gambar bisa sudah gagal sebelum listener terpasang
+    // The image may have already failed before the error listener was attached
     if (img.complete && img.naturalWidth === 0) fallback();
   });
 })();

@@ -1,7 +1,3 @@
-/* ===== KOMPONEN: tombol, kartu, chip, timeline, dll ===== */
-
-/* ----- Tombol ----- */
-
 .btn {
   display: inline-flex;
   align-items: center;
@@ -33,8 +29,6 @@
 .btn-ghost:hover { background: var(--panel); box-shadow: var(--glow); }
 
 .btn svg { width: 1.1rem; height: 1.1rem; }
-
-/* ----- Switch tema (matahari / bulan) ----- */
 
 .theme-switch {
   display: inline-flex;
@@ -72,8 +66,6 @@
 
 .theme-switch[aria-checked="true"] .thumb { transform: translateX(1.3rem); }
 
-/* ----- Kartu kaca ----- */
-
 .card {
   padding: 1.6rem 1.8rem;
   border: 1px solid var(--line);
@@ -82,8 +74,6 @@
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
 }
-
-/* ----- About ----- */
 
 .about-grid {
   display: grid;
@@ -126,7 +116,7 @@
   .portrait { max-width: 14rem; }
 }
 
-/* ----- Timeline pengalaman (urutan waktu) ----- */
+/* ----- Timeline ----- */
 
 .group-title {
   margin: 3.2rem 0 1.4rem;
