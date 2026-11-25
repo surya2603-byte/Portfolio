@@ -370,7 +370,7 @@
       (g.length ? '<button class="prj-full" type="button" data-full aria-label="View fullscreen">' + I.full + "</button>" : "") +
       "</figure>" + thumbs + "</div></div>" +
       '<aside class="prj-panel" data-reveal style="--d:2"><h3>Project Details</h3><dl>' +
-      row(I.user, "Client", val(p.client)) + row(I.cal, "Year", val(p.year)) + row(I.tag, "Category", val(p.category)) +
+      row(I.user, "Project Type", val(p.projectType)) + row(I.cal, "Year", val(p.year)) + row(I.tag, "Category", val(p.category)) +
       row(I.code, "Technologies", tech ? '<ul class="prj-chips sm">' + tech + "</ul>" : val("")) +
       "</dl><h4>About This Project</h4>" + txt(p.fullDescription || p.shortDescription) + "</aside></div>" +
       '<div class="prj-story">' +
