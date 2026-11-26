@@ -71,6 +71,7 @@
   background: var(--panel);
   color: var(--cyan);
   font-weight: 500;
+  font-size: .8rem;
 }
 
 .hello::before {
@@ -100,18 +101,29 @@
 .tagline {
   display: flex;
   flex-wrap: wrap;
-  gap: .3rem 1.6rem;
+  align-items: center;
+  gap: .3rem 0;
   margin: 1.3rem 0 2.2rem;
   padding: 0;
   list-style: none;
-  color: var(--muted);
+  color: var(--cyan);
   font-size: clamp(0.9rem, 1.3vw, 1.15rem);
+  font-weight: 600;
 }
 
-.tagline li::before {
-  content: "•";
-  margin-right: .6rem;
+.tagline li + li::before {
+  content: "|";
+  margin: 0 .7rem;
   color: var(--cyan);
+  font-weight: 400;
+}
+
+.hero-desc {
+  max-width: 34rem;
+  margin: -.6rem 0 2.2rem;
+  color: var(--muted);
+  font-size: clamp(.95rem, 1.2vw, 1.05rem);
+  line-height: 1.6;
 }
 
 .hero-actions {
