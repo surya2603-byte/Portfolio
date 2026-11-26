@@ -40,7 +40,7 @@ window.PROJECTS = [
     category: "AI & Deep Learning",
     shortDescription: "Applying ResNet50 to identify and segment key cardiac structures in MRI images.",
     fullDescription: "This project explores deep learning techniques for segmenting cardiac structures from MRI images. A ResNet50-based architecture was implemented to identify and separate key heart regions, including the right ventricle, left ventricle, and myocardium. The model was developed using Python and PyTorch, with performance evaluated through image segmentation metrics.",
-    year: "2024",
+    year: "2025",
     projectType: "Academic Project",
     technologies: ["Python", "PyTorch", "ResNet50"],
     thumbnail: "assets/exp/mri4.jpeg",
